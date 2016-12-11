@@ -5,7 +5,7 @@
 #'
 #' @docType data
 #'
-#' @usage katherinemansfieldr(grav)
+#' @usage katherinemansfieldr(theGardenParty)
 #'
 #' @format An object of class \code{"cross"}; see \code{\link[qtl]{read.cross}}.
 #'
@@ -21,4 +21,4 @@
 #' times <- attr(grav, "time")
 #' phe <- grav$pheno
 #' \donttest{iplotCurves(phe, times)}
-"grav"
+"theGardenParty"

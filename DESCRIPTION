@@ -1,17 +1,11 @@
-Package: katherinemansfieldr
-Title: A Package for Text Mining Katherine Mansfield's Short Stories
-Version: 0.1
-Authors@R: c(person("Andrew", "Kim", email = "akim17@amherst.edu",
-                  role = c("aut", "cre")),
-           person("Olivia", "Xu", email = "sxu17@amherst.edu",
-                  role = c("aut")))
-Description: This package contains machine45readable versions of the short stories from three of 
-Katherine Mansfield's collections: The Garden Party, Bliss and Something Childish.
-This package also contains functions that parse text files and perform stylometric analysis tasks such as
-measuring lengths of sentences and words, measuring vocabulary richness, frequency of words and punctuation.
+Package: myfirstpackage
+Title: What the Package Does (one line, title case)
+Version: 0.0.0.9000
+Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
+Description: What the package does (one paragraph).
 Depends:
-    R (>= 3.1.0)
-License: GNU General Public License
+    R (>= 3.3.1)
+License: What license is it under?
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 5.0.1
