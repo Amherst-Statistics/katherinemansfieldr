@@ -1,24 +1,56 @@
 #' The Garden Party
 #'
-#' A character vector containing the full text of "The Garden Party, and Other Stories" by 
-#' Katherine Mansfield.
+#' A dataset containing the full text of "The Garden Party, 
+#' and Other Stories" by Katherine Mansfield. The UTF-8 plain text was
+#' sourced from the ebooks.adelaide.edu website.
 #'
-#' @docType data
+#' @usage gardenParty
 #'
-#' @usage katherinemansfieldr(theGardenParty)
+#' @format A character vector with ___ elements
 #'
-#' @format An object of class \code{"cross"}; see \code{\link[qtl]{read.cross}}.
+#' @source \href{https://ebooks.adelaide.edu.au/m/mansfield/katherine/garden/index.html}
+#' 
+"gardenParty"
+
+#' Bliss
 #'
-#' @keywords datasets
+#' A dataset containing the full text of "Bliss, 
+#' and Other Stories" by Katherine Mansfield. The UTF-8 plain text was
+#' sourced from the ebooks.adelaide.edu website.
 #'
-#' @references Moore et al. (2013) Genetics 195:1077-1086
-#' (\href{http://www.ncbi.nlm.nih.gov/pubmed/23979570}{PubMed})
+#' @usage bliss
 #'
-#' @source \href{http://qtlarchive.org/db/q?pg=projdetails&proj=moore_2013b}{QTL Archive}
+#' @format A character vector with ___ elements
 #'
-#' @examples
-#' data(grav)
-#' times <- attr(grav, "time")
-#' phe <- grav$pheno
-#' \donttest{iplotCurves(phe, times)}
-"theGardenParty"
+#' @source \href{https://ebooks.adelaide.edu.au/m/mansfield/katherine/bliss/index.html}
+#' 
+"bliss"
+
+#' Something Childish
+#'
+#' A dataset containing the full text of "Something Childish, 
+#' and Other Stories" by Katherine Mansfield. The UTF-8 plain text was
+#' sourced from the ebooks.adelaide.edu website.
+#'
+#' @usage somethingChildish
+#'
+#' @format A character vector with ___ elements
+#'
+#' @source \href{https://ebooks.adelaide.edu.au/m/mansfield/katherine/something/index.html}
+#' 
+"somethingChildish"
+
+#' Katherine Mansfield's Complete Works
+#'
+#' A dataset containing the full texts of "Something Childish, 
+#' and Other Stories", "Bliss, and Other Stories", and "The Garden
+#' Party, and Other Stories" by Katherine Mansfield. The UTF-8 plain text was
+#' sourced from the ebooks.adelaide.edu website.
+#'
+#' @usage mansfieldComplete
+#'
+#' @format A character vector with ___ elements
+#'
+#' @source \href{https://ebooks.adelaide.edu.au/m/mansfield/katherine/}
+#' 
+"mansfieldComplete"
