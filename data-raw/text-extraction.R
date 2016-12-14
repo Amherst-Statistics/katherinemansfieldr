@@ -32,6 +32,16 @@ createTextfile <- function(site){
   }
 }
 
+scanMultiple <- function(list){
+  output <- c()
+  for(i in 1:length(list)){
+    story <- scan(list[i], what = "character", sep = "\n")
+    story.text <- story[1:(length(story) - 3)]
+    output <- c(output, story.text)
+  }
+  return(output)
+}
+
 # Read and parse HTML file
 somethingChildishURL <- "https://ebooks.adelaide.edu.au/m/mansfield/katherine/something/chapter"
 blissURL <- "https://ebooks.adelaide.edu.au/m/mansfield/katherine/bliss/chapter"
@@ -47,7 +57,6 @@ somethingChildish <- createURL(somethingChildishChapterNum, somethingChildishURL
 gardenParty <- createURL(gardenPartyChapterNum, gardenPartyURL)
 
 # store text files into separate folder
-setwd("~/git/katherinemansfieldr/data-raw/text-files")
 createTextfile(bliss)
 createTextfile(somethingChildish)
 createTextfile(gardenParty)
@@ -56,13 +65,12 @@ bliss.list <- list.files(pattern = "bliss\\..+\\.txt")
 gardenParty.list <- list.files(pattern = "gardenParty\\..+\\.txt")
 somethingChildish.list <- list.files(pattern = "somethingChildish\\..+\\.txt")
 
-setwd("~/git/katherinemansfieldr/data-raw/Rda-files")
 bliss <- scanMultiple(bliss.list)
-save(bliss, file = "bliss.Rda")
 gardenParty <- scanMultiple(gardenParty.list)
-save(gardenParty, file = "gardenParty.Rda")
 somethingChildish <- scanMultiple(somethingChildish.list)
-save(somethingChildish, file = "somethingChildish.Rda")
+mansfieldComplete <- c(somethingChildish, bliss, gardenParty)
 
-mansfield.complete <- c(somethingChildish, bliss, gardenParty)
-save(mansfield.complete, file = "mansfield.complete.Rda")
+devtools::use_data(mansfieldComplete, overwrite = TRUE)
+devtools::use_data(bliss, overwrite = TRUE)
+devtools::use_data(gardenParty, overwrite = TRUE)
+devtools::use_data(somethingChildish, overwrite = TRUE)

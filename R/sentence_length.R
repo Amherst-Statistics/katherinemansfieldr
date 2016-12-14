@@ -1,26 +1,21 @@
-#' Gets sentence length
+#' Get sentence length
 #'
-#' Returns the length of a sentence in terms of number of
-#' words.
+#' Retrieves a vector of sentences and returns the length of 
+#' each sentence in terms of number of words.
 #'
-#' @param sentences Vector of sentences
+#' @param sentences A character vector of sentences
 #' @export
 #' @examples
 #' sentence_length(sentences=c("And after all the weather was ideal.", 
 #' "Windless, warm, the sky without a cloud."))
+#' [1] 7  7
 
 sentence_length <- function(sentences){
-  sentence_length <- sapply(gregexpr("\\W+", sentences), length) + 1
-  sentence_index <- c()
-  for(i in 1:length(sentences)){
-    sentence_index <- c(sentence_index, paste(i))
-  }
-  sentence_index <- as.numeric(sentence_index)
-  output <- data.frame(sentence_length, sentence_index)
+  output <- sapply(gregexpr("\\W+", sentences), length) + 1
   return(output)
 }
 
-#' Gets sentence length per line
+#' Get sentence length per line
 #'
 #' Returns a data table returning the average sentence length in a line
 #' in terms of number of words and the index number of that line.

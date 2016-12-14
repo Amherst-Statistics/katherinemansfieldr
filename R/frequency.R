@@ -1,14 +1,19 @@
-#' Counts frequency of character or word in a text
+#' Count frequency of word or punctuation mark in a text
 #'
-#' This function matches a list of strings to a text and counts how 
-#' many times a particular string occurs in the text. Returns a data
-#' table with the matched strings with its number the occurrances.
+#' Matches a vector of target words/punctuation marks to a larger vector 
+#' of words/punctuation marks and counts how many times that particular word or 
+#' punctuation marks occurs in the larger string. Returns a data table with the 
+#' matched words or punctuation marks with their number the occurrances 
+#' in the larger string.
 #'
-#' @param characters Words to be matched with a smaller list of desired 
-#'        words
-#' @param char.list Words whose frequency we are interested in measuring
+#' @param characters Large vector of words/punctuation marks to be matched with 
+#'        a smaller list of desired words/characters.
+#' @param char.list Vector of target words/punctuation marks to be matched with the larger
+#'        vector of words/characters
 #' @param punctuation Boolean that determines whether to convert
 #'        punctuation marks into words
+#' @note the accepted punctuation marks are commas, periods, semicolons, question marks
+#'        exclamation points, quotation marks (forward and backward), ellipses and em-dashes.
 #' @export
 #' @examples
 #' sentence_length(sentences=c("And after all the weather was ideal.", 
@@ -46,26 +51,28 @@ charfreq <- function(characters, char.list, punctuation = FALSE){
         char.list[i] <- "quote"
       }
     }
-    char.list[i] <- paste("char_", char.list[i], sep = "")
   }
   
   output <- data.frame(char.list, freq)
-  colnames(output) <- c("char_type", "freq")
+  colnames(output) <- c("character", "freq")
   return(output)
 }
 
-#' Gets frequency of words per line
+#' Get frequency of words per line
 #'
-#' Returns a data table returning the frequency at which a series of desired
-#' words appear in a given line and the index number of that line.
+#' Returns a data table returning the relative frequency at which a series of desired
+#' words appear in a given line of text and the index number of that line. Relative
+#' frequency is calculated as the ratio of number of occurances to number of total
+#' words in a given line.
 #'
-#' @param text Vector of strings representing lines of a text
-#' @param freqwords Words whose frequency we are interested in finding
+#' @param text Any text or document as a character vector
+#' @param freqwords Vector of target words 
+#'        to be matched with the text/document of interest
 #' @export
 #' @examples
-#' freqWord_line(text = gardenParty, freqwords = c("she", "they", "he"))
+#' freq_word_line(text = gardenParty, freqwords = c("she", "they", "he"))
 
-freqWord_line <- function(text, freqwords){
+freq_word_line <- function(text, freqwords){
   line_index <- c()
   frequency <- NA
   for(i in 1:length(text)){
@@ -73,7 +80,7 @@ freqWord_line <- function(text, freqwords){
     WordsFreq <- charfreq(words, freqwords)
     line_index <- c(line_index, paste(i))
     WordsFreq <- mutate(WordsFreq, freq = freq/length(words))
-    WordsFreq <- spread(WordsFreq, char_type, freq)
+    WordsFreq <- tidyr::spread(WordsFreq, character, freq)
     if(i == 1){
       frequency <- WordsFreq
     }
@@ -86,28 +93,29 @@ freqWord_line <- function(text, freqwords){
   return(output)
 }
 
-#' Gets frequency of punctuation per line
+#' Get frequency of punctuation marks per line
 #'
-#' Returns a data table returning the frequency at which a series of 
+#' Returns a data table returning the relative frequency at which a series of 
 #' desired punctuation marks appear in a given line and the index 
-#' number of that line.
+#' number of that line. Relative frequency is calculated as the ratio of number
+#' of occurances to total number of words in a given line.
 #'
 #' @param text Vector of strings representing lines of a text
-#' @param punctlist Punctuation marks whose frequency we are 
-#'        interested in finding
+#' @param punctlist Vector of target punctuation marks to be matched 
+#'        with the text/document of interest
 #' @export
 #' @examples
 #' freqPunct_line(text = gardenParty, punctlist = c(".", "?", "..."))
 
-freqPunct_line <- function(text, punctlist){
+freq_punct_line <- function(text, punctlist){
   line_index <- c()
   frequency <- NA
   for(i in 1:length(text)){
     words <- extract_punct(text[i])
     WordsFreq <- charfreq(words, punctlist, punctuation = TRUE)
     line_index <- c(line_index, paste(i))
-    WordsFreq <- mutate(WordsFreq, freq = freq)
-    WordsFreq <- spread(WordsFreq, char_type, freq)
+    WordsFreq <- mutate(WordsFreq, freq = freq/length(extract_token(text[i])))
+    WordsFreq <- tidyr::spread(WordsFreq, character, freq)
     if(i == 1){
       frequency <- WordsFreq
     }

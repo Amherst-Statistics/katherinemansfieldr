@@ -1,12 +1,15 @@
 #' Extract tokens
 #'
 #' Takes a string and returns a vector
-#' of every word in the string.
+#' with every word in the string as a separate
+#' element.
 #'
-#' @param text Random string
+#' @param text A random string, as a character vector
 #' @export
 #' @examples
-#' extract_token(text=gardenParty)
+#' sampleText <- gardenParty[10]
+#' extract_token(text = sampleText)
+#' [1] ... "why" "the" "dickens" "didn't" "the" ...
 
 extract_token <- function(text){
   output <- tolower(text)
@@ -20,12 +23,15 @@ extract_token <- function(text){
 #' Extract types
 #'
 #' Takes a string and returns a vector
-#' of each unique word in the string.
+#' with every unique word in the string as
+#' a separate element.
 #'
-#' @param text Random string
+#' @param text A random string, as a character vector
 #' @export
 #' @examples
-#' extract_type(text=gardenParty)
+#' sampleText <- gardenParty[10]
+#' extract_type(text = sampleText)
+#' [1]... "the" "dickens" "didn't" "fellow" "stick" ...
 
 extract_type <- function(text){
   output <- tolower(text)
@@ -41,13 +47,19 @@ extract_type <- function(text){
 #' Takes a string and returns a vector
 #' of each sentence in the string.
 #'
-#' @param text Random string
+#' @param text A random string, as a character vector
+#' @note This function takes out all periods, question marks, 
+#'       exclamation points and quotation marks.
 #' @export
 #' @examples
-#' extract_sentence(text="gardenParty")
+#' sampleText <- gardenParty[10]
+#' extract_sentence(text = sampleText)
+#' [1] "Yes, very fine said Stanley briefly"
+#' [2] "Why the dickens didn't the fellow stick to his part of the sea"
+#' [3] "Why should he come barging over to this exact spot"
 
 extract_sentence <- function(text){
-  output <- gsub("(”|“)", "", text)
+  output <- gsub("([?!]”|“ | ”)", "", text)
   output <- strsplit(output, split = "[.?!] ") %>%
     unlist()
   output <- output[which(output != "")]
@@ -56,13 +68,18 @@ extract_sentence <- function(text){
 
 #' extract punctuation
 #'
-#' given a string and a list of punc
+#' Takes a string and returns a vector of every
+#' punctuation mark present in the string. The punctuation
+#' marks returned are: periods, commas, semicolons, question 
+#' marks, exclamation points, quotation marks (both forward
+#' and backward), ellipses and em-dashes.
 #'
-#' @param text character vector
-#' @param breaks vector of strings 
+#' @param text A random string, as a character vector
 #' @export
 #' @examples
-#' extract_sentence(text=gardenParty)
+#' sampleText <- gardenParty[10]
+#' extract_punct(text = sampleText)
+#' [1] "“" "," "." "’" "?" "?" ....
 
 extract_punct <- function(text){
   p <- as.vector(tolower(text))

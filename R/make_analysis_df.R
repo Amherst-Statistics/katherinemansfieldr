@@ -1,25 +1,29 @@
 #' Create analysis table
 #'
-#' This function takes a collection of chapters, breaks
+#' Takes a collection of chapters, breaks
 #' them up into individual chapters, and returns summary
-#' statistics for each chapter. Outputs average sentence length,
+#' statistics for each chapter. Output statistics include average sentence length,
 #' average token length, average type length, average variety 
 #' (# type/# token), story length, number of occurences of words, 
 #' number of occurances of punctuation and average sentiment score
 #' (AFINN method).
 #'
 #' @param text Character vector containing all the lines in a given text 
-#' @param chapters Lines to be matched in the text
+#' @param chapters Line index numbers associated with the first line/title 
+#'        line of each chapter
 #' @param freqwords Words whose frequency of appearance will be recorded
 #' @param punctlist Punctuation characters whose frequency of appearance 
 #'        will be recorded 
 #' @export
 #' @examples
-#' make_analysis_df(text="gardenParty",chapters=chapter.breaks, 
-#'                  freqWords=c("the", "and", "a"))
+#' breaks <- find_chapters(gardenParty)
+#' words <- c("the", "and", "a")
+#' punctuation <- c(",", ".", "...")
+#' make_analysis_df(text = gardenParty ,chapters = breaks, 
+#'                  freqWords = words, punctlist = punctuation)
 
 make_analysis_df <- function(text, chapters, freqwords, punctlist){
-  collection_name <- unlist(strsplit(text[1]))
+  collection_name <- unlist(strsplit(text[1], ","))[1]
   collection_name <- rep(collection_name, length(chapters) - 1)
   story_title <- c()
   outputdf <- NULL
@@ -27,45 +31,53 @@ make_analysis_df <- function(text, chapters, freqwords, punctlist){
     start <- chapters[i]
     end <- chapters[i+1] - 1
     text.lines <- text[start:end]
+    text.lines <- text.lines <- gsub("^([A-Z]+[a-z]+\\s[A-Z]+[a-z]+|[A-Z]+[a-z]+|[A-Z]+[a-z]+\\s[A-Z]+[a-z]+\\s[A-Z]+[a-z]+), and other stories, by Katherine Mansfield : ", "", text.lines)
     story_title <- c(story_title, text.lines[1])
-    subtext <- collapseText(text.lines)
+    subtext <- collapse_text(text.lines)
     
     # average token length
-    text.token <- extractToken(subtext)
-    text.token.length <- getWordLength(story_title, text.token)
-    text.token.averageLength <- mean(text.token.length$word_length)
+    text.token <- extract_token(subtext)
+    text.token.length <- word_length(text.token)
+    text.token.averageLength <- mean(text.token.length)
     
     # average type length
-    text.type <- extractType(subtext)
-    text.type.length <- getWordLength(story_title, text.type)
-    text.type.averageLength <- mean(text.type.length$word_length)
+    text.type <- extract_type(subtext)
+    text.type.length <- word_length(text.type)
+    text.type.averageLength <- mean(text.type.length)
     
     # average sentence length 
-    text.sentences <- extractSentences(subtext)
-    text.sentences.length <- getSentenceLength("part1", text.sentences)
-    text.sentences.averageLength <- mean(text.sentences.length$sentence_length)
+    text.sentences <- extract_sentence(subtext)
+    text.sentences.length <- sentence_length(text.sentences)
+    text.sentences.averageLength <- mean(text.sentences.length)
     
     # variety of words (type/token)
-    text.variety <- getVariety(subtext)
-    text.variety <- mean(text.variety$variety)
+    text.variety <- get_variety(subtext)
+    text.variety <- mean(text.variety)
     
-    statnames <- c("avg_token_length", "avg_type_length", "variety", "avg_sentence_length", "story_length")
-    wordstats <- c(text.token.averageLength, text.type.averageLength, text.variety, text.sentences.averageLength, length(text.token.length[,2]))
+    statnames <- c("avg_token_length", "avg_type_length", "variety", 
+                   "avg_sentence_length", "story_length")
+    wordstats <- c(text.token.averageLength, text.type.averageLength, text.variety, 
+                   text.sentences.averageLength, length(text.token.length))
     worddf <- data.frame(statnames, wordstats)
-    worddf <- spread(worddf, statnames, wordstats)
+    worddf <- tidyr::spread(worddf, statnames, wordstats)
     
     # frequency of most common words
-    WordFreq <- getCharFreq("part1", text.token, freqWords)
+    WordFreq <- charfreq(text.token, freqwords, punctuation = FALSE)
     WordFreq <- mutate(WordFreq, freq = freq/length(text.token))
-    WordFreq <- spread(WordFreq, char_type, freq)
+    WordFreq <- tidyr::spread(WordFreq, character, freq)
     
     # punctuation
-    text.punct <- extractPunctuation(subtext)
-    PunctFreq <- getCharFreq("part1", text.punct, punctList)
+    text.punct <- extract_punct(subtext)
+    PunctFreq <- charfreq(text.punct, punctlist, punctuation = TRUE)
     PunctFreq <- mutate(PunctFreq, freq = freq/length(text.punct))
-    PunctFreq <- spread(PunctFreq, char_type, freq)
+    PunctFreq <- tidyr::spread(PunctFreq, character, freq)
     
-    chapterSummary <- cbind(worddf, WordFreq, PunctFreq)
+    text.sentiment <- extract_sentence(subtext)
+    sentiment <- syuzhet::get_sentiment(text.sentiment, method = "afinn")
+    sentmean <- tail(sentiment, 100)%>%
+      mean()
+    
+    chapterSummary <- cbind(worddf, WordFreq, PunctFreq, sentmean)
     if(i == 1){
       outputdf <- chapterSummary
     }

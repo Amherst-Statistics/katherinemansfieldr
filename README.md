@@ -7,7 +7,7 @@
 Katherine Mansfield
 
 This package allows users to access the short story works of Katherine 
-Mansfield available on the ebooks.adelaide@edu website. The works have been converted from the UTF-8 text into files that are immediately ready for use. Each text is a character vector with elements that represent every paragraph. The works contained are as follows:
+Mansfield available on the ebooks@adelaide.edu website. The works have been converted from the UTF-8 text into files that are immediately ready for use. Each text is a character vector with elements that represent every paragraph. The works contained are as follows:
 
 `bliss` - *Bliss, and Other Stories*, published in 1923 and contains stories from 1915 to 1920
 
@@ -15,7 +15,7 @@ Mansfield available on the ebooks.adelaide@edu website. The works have been conv
 
 `gardenParty` - *The Garden Party, and Other Stories*, published in 1922 and contains stories from 1920 to 1922
 
-There is also `mansfield.complete` which contains all of the stories from the three story collections in one character vector.
+There is also `mansfieldComplete` which contains all of the stories from the three story collections in one character vector.
 
 ## Installation
 
@@ -33,5 +33,3 @@ library(devtools)
 install.github("Amherst-Statistics/katherinemansfieldr")
 library(katherinemansfieldr)
 ```
-
-## sdf 

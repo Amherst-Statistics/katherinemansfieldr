@@ -1,45 +1,42 @@
-#' Gets word length
+#' Get token length
 #'
-#' Returns the length of a word in terms of number of
-#' unique characters
+#' Retrieves a vector of tokens (words) and returns a vector 
+#' containing the length of each token in terms of number of
+#' unique characters.
 #'
-#' @param words Vector of words
+#' @param words A vector of words
 #' @export
 #' @examples
-#' word_length(words=c("I", "am", "Sam"))
+#' word_length(words=c("very", "early", "morning"))
+#' [1] 4, 5, 7
 
 word_length <- function(words){
-  word_length <- nchar(words)
-  word_index <- c()
-  for(i in 1:length(words)){
-    word_index <- c(word_index, paste(i))
-  }
-  word_index <- as.numeric(word_index)
-  output <- data.frame(word_length, word_index)
+  output <- nchar(words)
   return(output)
 }
 
-#' Gets word length per line
+#' Get token length per line
 #'
-#' Returns a data table returning the average word length in a line
-#' in terms of number of characters and the index number of that line.
+#' Returns a vector containing the average token (word) length in a line
+#' in terms of number of characters.
 #'
 #' @param text Vector of strings representing lines of a text
 #' @export
 #' @examples
-#' word_length_line(text = "gardenParty)
+#' word_length_line(text = gardenParty)
+#'   avg_token_length
+#' 1            4.750
+#' 2            4.214
+#' 3            4.579
 
 word_length_line <- function(text){
-  line_index <- c()
   avg_token_length <- c()
   for(i in 1:length(text)){
     token <- extract_token(text[i])
     tokenLength <- word_length(token)
     tokenLengthAvg <- mean(tokenLength$word_length)
-    line_index <- c(line_index, paste(i))
     avg_token_length <- c(avg_token_length, tokenLengthAvg)
   }
-  line_index <- as.numeric(line_index)
-  output <- data.frame(line_index, avg_token_length)
+  output <- avg_token_length
   return(output)
 }
