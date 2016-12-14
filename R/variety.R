@@ -15,7 +15,7 @@ get_variety <- function(text){
   for(i in 1:length(text)){
     token <- extract_token(text[i])
     type <- extract_type(text[i])
-    sentences <- extract_sentence(text[i])
+    sentences <- extract_sentences(text[i])
     var <- length(type)/length(token)
     variety <- c(variety, var)
   }
