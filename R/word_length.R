@@ -34,7 +34,7 @@ word_length_line <- function(text){
   for(i in 1:length(text)){
     token <- extract_token(text[i])
     tokenLength <- word_length(token)
-    tokenLengthAvg <- mean(tokenLength$word_length)
+    tokenLengthAvg <- mean(tokenLength)
     avg_token_length <- c(avg_token_length, tokenLengthAvg)
   }
   output <- avg_token_length
