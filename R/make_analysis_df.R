@@ -77,7 +77,7 @@ make_analysis_df <- function(text, chapters, freqwords, punctlist){
     sentmean <- tail(sentiment, 100)%>%
       mean()
     
-    chapterSummary <- cbind(worddf, WordFreq, PunctFreq, sentmean)
+    chapterSummary <- cbind(worddf, WordFreq, PunctFreq, sentmean, subtext)
     if(i == 1){
       outputdf <- chapterSummary
     }
