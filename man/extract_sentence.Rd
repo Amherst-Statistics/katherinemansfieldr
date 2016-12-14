@@ -7,13 +7,21 @@
 extract_sentence(text)
 }
 \arguments{
-\item{text}{Random string}
+\item{text}{A random string, as a character vector}
 }
 \description{
 Takes a string and returns a vector
 of each sentence in the string.
 }
+\note{
+This function takes out all periods, question marks, 
+      exclamation points and quotation marks.
+}
 \examples{
-extract_sentence(text="gardenParty")
+sampleText <- gardenParty[10]
+extract_sentence(text = sampleText)
+[1] "Yes, very fine said Stanley briefly"
+[2] "Why the dickens didn't the fellow stick to his part of the sea"
+[3] "Why should he come barging over to this exact spot"
 }
 

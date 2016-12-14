@@ -2,18 +2,20 @@
 % Please edit documentation in R/variety.R
 \name{get_variety}
 \alias{get_variety}
-\title{Gets variety value}
+\title{Get type-token ratio/vocabulary richness measure}
 \usage{
 get_variety(text)
 }
 \arguments{
-\item{text}{String or vector of strings}
+\item{text}{Vector of strings representing lines of a text}
 }
 \description{
 Returns the ratio of number of types by number of tokens in a given 
-string of words.
+character vector. Each element in the output vector is associated with 
+the line with the same index number in the input vector.
 }
 \examples{
 get_variety(text=gardenParty)
+[1] 0.916  0.6071  0.7536  ...
 }
 

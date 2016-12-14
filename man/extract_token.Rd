@@ -7,13 +7,16 @@
 extract_token(text)
 }
 \arguments{
-\item{text}{Random string}
+\item{text}{A random string, as a character vector}
 }
 \description{
 Takes a string and returns a vector
-of every word in the string.
+with every word in the string as a separate
+element.
 }
 \examples{
-extract_token(text=gardenParty)
+sampleText <- gardenParty[10]
+extract_token(text = sampleText)
+[1] ... "why" "the" "dickens" "didn't" "the" ...
 }
 

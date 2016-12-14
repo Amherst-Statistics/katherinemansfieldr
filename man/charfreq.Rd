@@ -2,23 +2,30 @@
 % Please edit documentation in R/frequency.R
 \name{charfreq}
 \alias{charfreq}
-\title{Counts frequency of character or word in a text}
+\title{Count frequency of word or punctuation mark in a text}
 \usage{
 charfreq(characters, char.list, punctuation = FALSE)
 }
 \arguments{
-\item{characters}{Words to be matched with a smaller list of desired 
-words}
+\item{characters}{Large vector of words/punctuation marks to be matched with 
+a smaller list of desired words/characters.}
 
-\item{char.list}{Words whose frequency we are interested in measuring}
+\item{char.list}{Vector of target words/punctuation marks to be matched with the larger
+vector of words/characters}
 
 \item{punctuation}{Boolean that determines whether to convert
 punctuation marks into words}
 }
 \description{
-This function matches a list of strings to a text and counts how 
-many times a particular string occurs in the text. Returns a data
-table with the matched strings with its number the occurrances.
+Matches a vector of target words/punctuation marks to a larger vector 
+of words/punctuation marks and counts how many times that particular word or 
+punctuation marks occurs in the larger string. Returns a data table with the 
+matched words or punctuation marks with their number the occurrances 
+in the larger string.
+}
+\note{
+the accepted punctuation marks are commas, periods, semicolons, question marks
+       exclamation points, quotation marks (forward and backward), ellipses and em-dashes.
 }
 \examples{
 sentence_length(sentences=c("And after all the weather was ideal.", 

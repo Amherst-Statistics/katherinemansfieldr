@@ -13,10 +13,13 @@ get_breaks(text, breaks)
 }
 \description{
 This function matches a vector of break point strings 
-with lines from another text and returns 
-the line/index numbers of the matched strings in the text.
+with lines from a larger text and returns 
+the line/index numbers of the matched strings in the larger text.
 }
 \examples{
-get_breaks(text="gardenParty",breaks="breakpoints")
+breakpoints <- c("Shall we sit here?", "“No, not now,” 
+               said the girl. “Not here, I can’t.”")
+get_breaks(text = gardenParty, breaks = breakpoints)
+[1] 1215 1535
 }
 

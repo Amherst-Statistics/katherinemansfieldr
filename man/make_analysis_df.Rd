@@ -9,7 +9,8 @@ make_analysis_df(text, chapters, freqwords, punctlist)
 \arguments{
 \item{text}{Character vector containing all the lines in a given text}
 
-\item{chapters}{Lines to be matched in the text}
+\item{chapters}{Line index numbers associated with the first line/title 
+line of each chapter}
 
 \item{freqwords}{Words whose frequency of appearance will be recorded}
 
@@ -17,16 +18,19 @@ make_analysis_df(text, chapters, freqwords, punctlist)
 will be recorded}
 }
 \description{
-This function takes a collection of chapters, breaks
+Takes a collection of chapters, breaks
 them up into individual chapters, and returns summary
-statistics for each chapter. Outputs average sentence length,
+statistics for each chapter. Output statistics include average sentence length,
 average token length, average type length, average variety 
 (# type/# token), story length, number of occurences of words, 
 number of occurances of punctuation and average sentiment score
 (AFINN method).
 }
 \examples{
-make_analysis_df(text="gardenParty",chapters=chapter.breaks, 
-                 freqWords=c("the", "and", "a"))
+breaks <- find_chapters(gardenParty)
+words <- c("the", "and", "a")
+punctuation <- c(",", ".", "...")
+make_analysis_df(text = gardenParty ,chapters = breaks, 
+                 freqWords = words, punctlist = punctuation)
 }
 

@@ -2,18 +2,20 @@
 % Please edit documentation in R/word_length.R
 \name{word_length}
 \alias{word_length}
-\title{Gets word length}
+\title{Get token length}
 \usage{
 word_length(words)
 }
 \arguments{
-\item{words}{Vector of words}
+\item{words}{A vector of words}
 }
 \description{
-Returns the length of a word in terms of number of
-unique characters
+Retrieves a vector of tokens (words) and returns a vector 
+containing the length of each token in terms of number of
+unique characters.
 }
 \examples{
-word_length(words=c("I", "am", "Sam"))
+word_length(words=c("very", "early", "morning"))
+[1] 4, 5, 7
 }
 

@@ -2,7 +2,7 @@
 % Please edit documentation in R/text_prep.R
 \name{find_freq_char}
 \alias{find_freq_char}
-\title{Finds 10 most frequent words}
+\title{Find 10 most frequent words}
 \usage{
 find_freq_char(text)
 }
@@ -10,10 +10,11 @@ find_freq_char(text)
 \item{text}{Character vector containing all the lines in a given text}
 }
 \description{
-This function retrieves the 10 most frequently occurring
+Retrieves the 10 most frequently occurring
 words and returns the words in a vector.
 }
 \examples{
 find_freq_char(text = "gardenParty")
+[1] "the" "and" "a" "to" "she" "was" "her" "it" "of" "in"
 }
 

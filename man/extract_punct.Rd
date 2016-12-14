@@ -7,14 +7,18 @@
 extract_punct(text)
 }
 \arguments{
-\item{text}{character vector}
-
-\item{breaks}{vector of strings}
+\item{text}{A random string, as a character vector}
 }
 \description{
-given a string and a list of punc
+Takes a string and returns a vector of every
+punctuation mark present in the string. The punctuation
+marks returned are: periods, commas, semicolons, question 
+marks, exclamation points, quotation marks (both forward
+and backward), ellipses and em-dashes.
 }
 \examples{
-extract_sentence(text=gardenParty)
+sampleText <- gardenParty[10]
+extract_punct(text = sampleText)
+[1] "“" "," "." "’" "?" "?" ....
 }
 

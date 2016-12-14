@@ -2,7 +2,7 @@
 % Please edit documentation in R/sentence_length.R
 \name{sentence_length_line}
 \alias{sentence_length_line}
-\title{Gets sentence length per line}
+\title{Get sentence length per line}
 \usage{
 sentence_length_line(text)
 }

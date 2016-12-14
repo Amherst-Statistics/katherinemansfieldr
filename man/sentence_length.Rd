@@ -2,19 +2,21 @@
 % Please edit documentation in R/sentence_length.R
 \name{sentence_length}
 \alias{sentence_length}
-\title{Gets sentence length}
+\title{Get sentence length}
 \usage{
 sentence_length(sentences)
 }
 \arguments{
-\item{sentences}{Vector of sentences}
+\item{sentences}{A character vector of sentences}
 }
 \description{
-Returns the length of a sentence in terms of number of
-words.
+Retrieves a vector of sentences and returns the length of 
+each sentence in terms of number of words.
 }
 \examples{
 sentence_length(sentences=c("And after all the weather was ideal.", 
 "Windless, warm, the sky without a cloud."))
+[1] 7
+[2] 7
 }
 

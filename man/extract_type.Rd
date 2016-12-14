@@ -7,13 +7,16 @@
 extract_type(text)
 }
 \arguments{
-\item{text}{Random string}
+\item{text}{A random string, as a character vector}
 }
 \description{
 Takes a string and returns a vector
-of each unique word in the string.
+with every unique word in the string as
+a separate element.
 }
 \examples{
-extract_type(text=gardenParty)
+sampleText <- gardenParty[10]
+extract_type(text = sampleText)
+[1]... "the" "dickens" "didn't" "fellow" "stick" ...
 }
 

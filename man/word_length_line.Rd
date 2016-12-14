@@ -2,7 +2,7 @@
 % Please edit documentation in R/word_length.R
 \name{word_length_line}
 \alias{word_length_line}
-\title{Gets word length per line}
+\title{Get token length per line}
 \usage{
 word_length_line(text)
 }
@@ -10,7 +10,14 @@ word_length_line(text)
 \item{text}{Vector of strings representing lines of a text}
 }
 \description{
-Returns a data table returning the average word length in a line
-in terms of number of characters and the index number of that line.
+Returns a vector containing the average token (word) length in a line
+in terms of number of characters.
+}
+\examples{
+word_length_line(text = gardenParty)
+  avg_token_length
+1            4.750
+2            4.214
+3            4.579
 }
 
