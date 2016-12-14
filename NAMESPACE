@@ -3,7 +3,7 @@
 export(charfreq)
 export(collapse_text)
 export(extract_punct)
-export(extract_sentence)
+export(extract_sentences)
 export(extract_token)
 export(extract_type)
 export(find_chapters)
