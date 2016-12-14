@@ -46,7 +46,7 @@ make_analysis_df <- function(text, chapters, freqwords, punctlist){
     text.type.averageLength <- mean(text.type.length)
     
     # average sentence length 
-    text.sentences <- extract_sentence(subtext)
+    text.sentences <- extract_sentences(subtext)
     text.sentences.length <- sentence_length(text.sentences)
     text.sentences.averageLength <- mean(text.sentences.length)
     
@@ -72,7 +72,7 @@ make_analysis_df <- function(text, chapters, freqwords, punctlist){
     PunctFreq <- mutate(PunctFreq, freq = freq/length(text.punct))
     PunctFreq <- tidyr::spread(PunctFreq, character, freq)
     
-    text.sentiment <- extract_sentence(subtext)
+    text.sentiment <- extract_sentences(subtext)
     sentiment <- syuzhet::get_sentiment(text.sentiment, method = "afinn")
     sentmean <- tail(sentiment, 100)%>%
       mean()

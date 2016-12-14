@@ -29,7 +29,7 @@ sentence_length_line <- function(text){
   line_index <- c()
   avg_sentence_length <- c()
   for(i in 1:length(text)){
-    sentence <- extract_sentence(text[i])
+    sentence <- extract_sentences(text[i])
     sentenceLength <- sentence_length(sentence)
     sentenceLengthAvg <- mean(sentenceLength$sentence_length)
     line_index <- c(line_index, paste(i))
