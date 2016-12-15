@@ -30,16 +30,16 @@ charfreq <- function(characters, char.list, punctuation = FALSE){
         char.list[i] <- "comma"
       }
       if (char.list[i] == "—"){
-        char.list[i] <- "em-dash"
+        char.list[i] <- "em_dash"
       }
       if (char.list[i] == "."){
         char.list[i] <- "period"
       }
       if (char.list[i] == "\\?"){
-        char.list[i] <- "question-mark"
+        char.list[i] <- "question_mark"
       }
       if (char.list[i] == "!"){
-        char.list[i] <- "exclaim-point"
+        char.list[i] <- "exclaim_point"
       }
       if (char.list[i] == "..."){
         char.list[i] <- "ellipsis"
