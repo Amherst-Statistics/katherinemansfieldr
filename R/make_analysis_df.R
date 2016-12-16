@@ -31,7 +31,7 @@ make_analysis_df <- function(text, chapters, freqwords, punctlist){
     start <- chapters[i]
     end <- chapters[i+1] - 1
     text.lines <- text[start:end]
-    text.lines <- text.lines <- gsub("^([A-Z]+[a-z]+\\s[A-Z]+[a-z]+|[A-Z]+[a-z]+|[A-Z]+[a-z]+\\s[A-Z]+[a-z]+\\s[A-Z]+[a-z]+), and other stories, by Katherine Mansfield : ", "", text.lines)
+    text.lines <- gsub("^([A-Z]+[a-z]+\\s[A-Z]+[a-z]+|[A-Z]+[a-z]+|[A-Z]+[a-z]+\\s[A-Z]+[a-z]+\\s[A-Z]+[a-z]+), and other stories, by Katherine Mansfield : ", "", text.lines)
     story_title <- c(story_title, text.lines[1])
     subtext <- collapse_text(text.lines)
     

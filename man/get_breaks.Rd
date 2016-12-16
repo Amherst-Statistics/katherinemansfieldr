@@ -16,6 +16,10 @@ This function matches a vector of break point strings
 with lines from a larger text and returns 
 the line/index numbers of the matched strings in the larger text.
 }
+\note{
+The breaks argument can be fragments of the lines that are to be
+matched and indexed in the larger text argument.
+}
 \examples{
 breakpoints <- c("Shall we sit here?", "“No, not now,” 
                said the girl. “Not here, I can’t.”")

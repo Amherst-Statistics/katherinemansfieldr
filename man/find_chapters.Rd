@@ -13,8 +13,11 @@ find_chapters(text)
 Returns the line index numbers of the first lines of each short story in
 the vectorized short story collections.
 }
+\note{
+The last element in the output is the line
+}
 \examples{
 find_chapters(text = gardenParty)
-[1] 1  352  403  453
+[1] 1  352  403 ...
 }
 

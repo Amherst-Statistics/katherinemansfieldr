@@ -6,6 +6,8 @@
 #'
 #' @param text Character vector containing all the lines in a given text 
 #' @param breaks Lines to be matched in the text
+#' @note The breaks argument can be fragments of the lines that are to be
+#' matched and indexed in the larger text argument.
 #' @export
 #' @examples
 #' breakpoints <- c("Shall we sit here?", "“No, not now,” 
@@ -23,7 +25,7 @@ get_breaks <- function(text, breaks){
 
 #' Collapse text
 #'
-#' Retrieves a character vector collapses it into one string.
+#' Retrieves a character vector and collapses it into one string.
 #'
 #' @param text Character vector containing all the lines in a given text
 #' @export
@@ -44,7 +46,7 @@ collapse_text <- function(text){
 #' @param text Character vector containing all the lines in a given text
 #' @export
 #' @examples
-#' find_freq_char(text = "gardenParty")
+#' find_freq_char(text = gardenParty)
 #' [1] "the" "and" "a" "to" "she" "was" "her" "it" "of" "in"
 
 find_freq_char <- function(text){
@@ -67,13 +69,13 @@ find_freq_char <- function(text){
 #' the vectorized short story collections.
 #'
 #' @param text Character vector containing all the lines in a given text 
+#' @note The last element in the output is the line 
 #' @export
 #' @examples
 #' find_chapters(text = gardenParty)
-#' [1] 1  352  403  453
+#' [1] 1  352  403 ...
 
 find_chapters <- function(text){
   output <- grep("^([A-Z]+[a-z]+\\s[A-Z]+[a-z]+|[A-Z]+[a-z]+|[A-Z]+[a-z]+\\s[A-Z]+[a-z]+\\s[A-Z]+[a-z]+), and other stories, by Katherine Mansfield : ", text)
-  output <- as.integer(c(output, length(text) + 1))
   return(output)
 }

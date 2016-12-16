@@ -19,17 +19,9 @@ There is also `mansfieldComplete` which contains all of the stories from the thr
 
 ## Installation
 
-To install the package, type the following code:
+To install this package, please refer to the following commands: 
 
 ```
-install.packages("katherinemansfieldr")
-library(katherinemansfieldr)
-```
-
-You can also install the development version from Github:
-
-```
-library(devtools)
-install.github("Amherst-Statistics/katherinemansfieldr")
+devtools::install.github("Amherst-Statistics/katherinemansfieldr")
 library(katherinemansfieldr)
 ```

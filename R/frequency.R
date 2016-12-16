@@ -16,8 +16,19 @@
 #'        exclamation points, quotation marks (forward and backward), ellipses and em-dashes.
 #' @export
 #' @examples
-#' sentence_length(sentences=c("And after all the weather was ideal.", 
-#' "Windless, warm, the sky without a cloud."))
+#' char <- extract_token(gardenParty)
+#' charfreq(char, c("she", "he", "them"), punctuation = FALSE)
+#'      character freq
+#' [1]       she  1349
+#' [2]        he  8632
+#' [3]      them  223
+#' 
+#' char <- extract_punct(gardenParty)
+#' charfreq(char, c(".", "...", "?"), punctuation = TRUE)
+#'           character    freq
+#' [1]          period   15229
+#' [2]        ellipsis     199
+#' [3]   question_mark     603
 
 charfreq <- function(characters, char.list, punctuation = FALSE){
   freq <- c()
@@ -79,7 +90,7 @@ freq_word_line <- function(text, freqwords){
     words <- extract_token(text[i])
     WordsFreq <- charfreq(words, freqwords)
     line_index <- c(line_index, paste(i))
-    WordsFreq <- mutate(WordsFreq, freq = freq/length(words))
+    WordsFreq <- dplyr::mutate(WordsFreq, freq = freq/length(words))
     WordsFreq <- tidyr::spread(WordsFreq, character, freq)
     if(i == 1){
       frequency <- WordsFreq
@@ -114,7 +125,7 @@ freq_punct_line <- function(text, punctlist){
     words <- extract_punct(text[i])
     WordsFreq <- charfreq(words, punctlist, punctuation = TRUE)
     line_index <- c(line_index, paste(i))
-    WordsFreq <- mutate(WordsFreq, freq = freq/length(extract_token(text[i])))
+    WordsFreq <- dplyr::mutate(WordsFreq, freq = freq/length(extract_token(text[i])))
     WordsFreq <- tidyr::spread(WordsFreq, character, freq)
     if(i == 1){
       frequency <- WordsFreq

@@ -14,7 +14,7 @@ gardenParty
 \description{
 A dataset containing the full text of "The Garden Party, 
 and Other Stories" by Katherine Mansfield. The UTF-8 plain text was
-sourced from the ebooks.adelaide.edu website. Each line represents a 
+sourced from the ebooks.adelaide.edu.au website. Each line represents a 
 paragraph in the original text.
 }
 \keyword{datasets}

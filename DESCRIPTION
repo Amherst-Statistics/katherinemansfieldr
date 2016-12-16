@@ -7,7 +7,7 @@ Authors@R: c(person("Andrew", "Kim", email = "akim17@amherst.edu",
                   role = c("aut")))
 Description: This package contains machine45readable versions of the short stories from three of Katherine Mansfield's collections: The Garden Party, Bliss and Something Childish.This package also contains functions that parse text files and perform stylometric analysis tasks such asmeasuring lengths of sentences and words, measuring vocabulary richness, frequency of words and punctuation.
 Depends:
-    R (>= 3.3.1), mosaic, XML, readr, stringr, RCurl
+    R (>= 3.1)
 License: GNU General Public License
 Encoding: UTF-8
 LazyData: TRUE

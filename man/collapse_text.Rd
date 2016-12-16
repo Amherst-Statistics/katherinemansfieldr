@@ -10,7 +10,7 @@ collapse_text(text)
 \item{text}{Character vector containing all the lines in a given text}
 }
 \description{
-Retrieves a character vector collapses it into one string.
+Retrieves a character vector and collapses it into one string.
 }
 \examples{
 sampleText <- c("“Oh, Mrs. Parker, I’m going out.”", "“Very good, sir.”")
