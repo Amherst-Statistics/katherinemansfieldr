@@ -17,7 +17,7 @@
 
 get_breaks <- function(text, breaks){
   output <- c()
-  for(i in 1:length(breaks)){
+  for(i in 1:(length(breaks) + 1)){
     output <- c(output, grep(breakpoints[i], text))
   }
   return(output)
