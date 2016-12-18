@@ -23,11 +23,12 @@
 #'                  freqWords = words, punctlist = punctuation)
 
 make_analysis_df <- function(text, chapters, freqwords, punctlist){
-  collection_name <- unlist(strsplit(text[1], ","))[1]
-  collection_name <- rep(collection_name, length(chapters) - 1)
+  collection_name <- c()
   story_title <- c()
   outputdf <- NULL
   for(i in 1:(length(chapters) - 1)){
+    col_name <- unlist(strsplit(text[chapters[i]], ","))[1]
+    collection_name <- c(collection_name, col_name)
     start <- chapters[i]
     end <- chapters[i+1] - 1
     text.lines <- text[start:end]
