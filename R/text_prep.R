@@ -18,7 +18,7 @@
 get_breaks <- function(text, breaks){
   output <- c()
   for(i in 1:(length(breaks) + 1)){
-    output <- c(output, which(gardenParty.text == breakpoints[i]))
+    output <- c(output, which(text == breakpoints[i]))
   }
   return(output)
 }
