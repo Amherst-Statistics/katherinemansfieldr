@@ -58,3 +58,16 @@
 #' @source \url{https://ebooks.adelaide.edu.au/m/mansfield/katherine/}
 #' 
 "mansfieldComplete"
+
+#' Analysis Table of Katheirne Mansfield's Complete Works
+#'
+#' A dataset containing the make_analysis_df() output for 
+#' the mansfieldComplete dataset, including a year and period variable.
+#'
+#' @usage completeAnalysisTable
+#'
+#' @format A data table with 54 observations (each row representing one story) and
+#' 27 variables (columns)
+#'
+#' 
+"completeAnalysisTable"
