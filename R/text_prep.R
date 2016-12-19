@@ -77,5 +77,6 @@ find_freq_char <- function(text){
 
 find_chapters <- function(text){
   output <- grep("^([A-Z]+[a-z]+\\s[A-Z]+[a-z]+|[A-Z]+[a-z]+|[A-Z]+[a-z]+\\s[A-Z]+[a-z]+\\s[A-Z]+[a-z]+), and other stories, by Katherine Mansfield : ", text)
+  output <- as.integer(c(output, length(text) + 1))
   return(output)
 }
