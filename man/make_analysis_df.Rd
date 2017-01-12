@@ -22,7 +22,7 @@ Takes a collection of chapters, breaks
 them up into individual chapters, and returns summary
 statistics for each chapter. Output statistics include average sentence length,
 average token length, average type length, average variety 
-(# type/# token), story length, number of occurences of words (expressed as
+(# type/# token), story length (number of words), number of occurences of words (expressed as
 ratio of frequency of word over total number of words), 
 number of occurances of punctuation (expressed as ratio of frequency of
 punctuation mark over all punctuation marks) and average sentiment score

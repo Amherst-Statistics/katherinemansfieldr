@@ -1,7 +1,7 @@
 Package: katherinemansfieldr
 Title: A Package for Text Mining Katherine Mansfield's Short Stories
 Version: 1.0.0
-Authors@R: c(person("Andrew", "Kim", email = "akim17@amherst.edu",
+Authors@R: c(person("Andrew", "Kim", email = "andrewkimchi@gmail.com",
                   role = c("aut", "cre")),
            person("Olivia", "Xu", email = "sxu17@amherst.edu",
                   role = c("aut")))
