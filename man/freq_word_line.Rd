@@ -13,10 +13,8 @@ freq_word_line(text, freqwords)
 to be matched with the text/document of interest}
 }
 \description{
-Returns a data table returning the relative frequency at which a series of desired
-words appear in a given line of text and the index number of that line. Relative
-frequency is calculated as the ratio of number of occurances to number of total
-words in a given line.
+Returns a data table returning the number of times a series of desired
+words appear in a given line of text and the index number of that line.
 }
 \examples{
 freq_word_line(text = gardenParty, freqwords = c("she", "they", "he"))

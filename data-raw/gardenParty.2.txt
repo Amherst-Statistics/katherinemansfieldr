@@ -20,7 +20,7 @@ Laura’s upbringing made her wonder for a moment whether it was quite respectfu
 “Look here, miss, that’s the place. Against those trees. Over there. That’ll do fine.”
 Against the karakas. Then the karaka-trees would be hidden. And they were so lovely, with their broad, gleaming leaves, and their clusters of yellow fruit. They were like trees you imagined growing on a desert island, proud, solitary, lifting their leaves and fruits to the sun in a kind of silent splendour. Must they be hidden by a marquee?
 They must. Already the men had shouldered their staves and were making for the place. Only the tall fellow was left. He bent down, pinched a sprig of lavender, put his thumb and forefinger to his nose and snuffed up the smell. When Laura saw that gesture she forgot all about the karakas in her wonder at him caring for things like that — caring for the smell of lavender. How many men that she knew would have done such a thing? Oh, how extraordinarily nice workmen were, she thought. Why couldn’t she have workmen for her friends rather than the silly boys she danced with and who came to Sunday night supper? She would get on much better with men like these.
-It’s all the fault, she decided, as the tall fellow drew something on the back of an envelope, something that was to be looped up or left to hang, of these absurd class distinctions. Well, for her part, she didn’t feel them. Not a bit, not an atom . . . And now there came the chock-chock of wooden hammers. Some one whistled, some one sang out, “Are you right there, matey?” “Matey!” The friendliness of it, the — the — Just to prove how happy she was, just to show the tall fellow how at home she felt, and how she despised stupid conventions, Laura took a big bite of her bread-and-butter as she stared at the little drawing. She felt just like a work-girl.
+It’s all the fault, she decided, as the tall fellow drew something on the back of an envelope, something that was to be looped up or left to hang, of these absurd class distinctions. Well, for her part, she didn’t feel them. Not a bit, not an atom ... And now there came the chock-chock of wooden hammers. Some one whistled, some one sang out, “Are you right there, matey?” “Matey!” The friendliness of it, the — the — Just to prove how happy she was, just to show the tall fellow how at home she felt, and how she despised stupid conventions, Laura took a big bite of her bread-and-butter as she stared at the little drawing. She felt just like a work-girl.
 “Laura, Laura, where are you? Telephone, Laura!” a voice cried from the house.
 “Coming!” Away she skimmed, over the lawn, up the path, up the steps, across the veranda, and into the porch. In the hall her father and Laurie were brushing their hats ready to go to the office.
 “I say, Laura,” said Laurie very fast, “you might just give a squiz at my coat before this afternoon. See if it wants pressing.”
@@ -50,18 +50,18 @@ In the drawing-room Meg, Jose and good little Hans had at last succeeded in movi
 “Very good, Miss Jose.”
 She turned to Meg. “I want to hear what the piano sounds like, just in case I’m asked to sing this afternoon. Let’s try over ‘This life is Weary.’”
 Pom! Ta-ta-ta Tee-ta! The piano burst out so passionately that Jose’s face changed. She clasped her hands. She looked mournfully and enigmatically at her mother and Laura as they came in.
- “This Life is Wee-ary,
-  A Tear — a Sigh.
-  A Love that Chan-ges,
-    This Life is Wee-ary,
-  A Tear — a Sigh.
-  A Love that Chan-ges,
-  And then . . . Good-bye!”
+  “This Life is Wee-ary,
+    A Tear — a Sigh.
+    A Love that Chan-ges,
+        This Life is Wee-ary,
+    A Tear — a Sigh.
+    A Love that Chan-ges,
+    And then ... Good-bye!”
 But at the word “Good-bye,” and although the piano sounded more desperate than ever, her face broke into a brilliant, dreadfully unsympathetic smile.
 “Aren’t I in good voice, mummy?” she beamed.
- “This Life is Wee-ary,
-  Hope comes to Die.
-  A Dream — a Wa-kening.”
+  “This Life is Wee-ary,
+    Hope comes to Die.
+    A Dream — a Wa-kening.”
 But now Sadie interrupted them. “What is it, Sadie?”
 “If you please, m’m, cook says have you got the flags for the sandwiches?”
 “The flags for the sandwiches, Sadie?” echoed Mrs. Sheridan dreamily. And the children knew by her face that she hadn’t got them. “Let me see.” And she said to Sadie firmly, “Tell cook I’ll let her have them in ten minutes.”
@@ -122,7 +122,7 @@ Laura had to say “yes” to that, but she felt it was all wrong. She sat down 
 “But, mother,” Laura began again. She couldn’t look at herself; she turned aside.
 This time Mrs. Sheridan lost patience just as Jose had done.
 “You are being very absurd, Laura,” she said coldly. “People like that don’t expect sacrifices from us. And it’s not very sympathetic to spoil everybody’s enjoyment as you’re doing now.”
-“I don’t understand,” said Laura, and she walked quickly out of the room into her own bedroom. There, quite by chance, the first thing she saw was this charming girl in the mirror, in her black hat trimmed with gold daisies, and a long black velvet ribbon. Never had she imagined she could look like that. Is mother right? she thought. And now she hoped her mother was right. Am I being extravagant? Perhaps it was extravagant. Just for a moment she had another glimpse of that poor woman and those little children, and the body being carried into the house. But it all seemed blurred, unreal, like a picture in the newspaper. I’ll remember it again after the party’s over, she decided. And somehow that seemed quite the best plan . . .
+“I don’t understand,” said Laura, and she walked quickly out of the room into her own bedroom. There, quite by chance, the first thing she saw was this charming girl in the mirror, in her black hat trimmed with gold daisies, and a long black velvet ribbon. Never had she imagined she could look like that. Is mother right? she thought. And now she hoped her mother was right. Am I being extravagant? Perhaps it was extravagant. Just for a moment she had another glimpse of that poor woman and those little children, and the body being carried into the house. But it all seemed blurred, unreal, like a picture in the newspaper. I’ll remember it again after the party’s over, she decided. And somehow that seemed quite the best plan ...
 Lunch was over by half-past one. By half-past two they were all ready for the fray. The green-coated band had arrived and was established in a corner of the tennis-court.
 “My dear!” trilled Kitty Maitland, “aren’t they too like frogs for words? You ought to have arranged them round the pond with the conductor in the middle on a leaf.”
 Laurie arrived and hailed them on his way to dress. At the sight of him Laura remembered the accident again. She wanted to tell him. If Laurie agreed with the others, then it was bound to be all right. And she followed him into the hall.
@@ -135,7 +135,7 @@ Soon after that people began coming in streams. The band struck up; the hired wa
 “Laura, you look quite Spanish. I’ve never seen you look so striking.”
 And Laura, glowing, answered softly, “Have you had tea? Won’t you have an ice? The passion-fruit ices really are rather special.” She ran to her father and begged him. “Daddy darling, can’t the band have something to drink?”
 And the perfect afternoon slowly ripened, slowly faded, slowly its petals closed.
-“Never a more delightful garden-party . . . “ “The greatest success . . . ” “Quite the most . . . ”
+“Never a more delightful garden-party ... “ “The greatest success ... ” “Quite the most ... ”
 Laura helped her mother with the good-byes. They stood side by side in the porch till it was all over.
 “All over, all over, thank heaven,” said Mrs. Sheridan. “Round up the others, Laura. Let’s go and have some fresh coffee. I’m exhausted. Yes, it’s been very successful. But oh, these parties, these parties! Why will you children insist on giving parties!” And they all of them sat down in the deserted marquee.
 “Have a sandwich, daddy dear. I wrote the flag.”
@@ -143,7 +143,7 @@ Laura helped her mother with the good-byes. They stood side by side in the porch
 “My dear,” said Mrs. Sheridan, holding up her hand, “we did. It nearly ruined the party. Laura insisted we should put it off.”
 “Oh, mother!” Laura didn’t want to be teased about it.
 “It was a horrible affair all the same,” said Mr. Sheridan. “The chap was married too. Lived just below in the lane, and leaves a wife and half a dozen kiddies, so they say.”
-An awkward little silence fell. Mrs. Sheridan fidgeted with her cup. Really, it was very tactless of father . . .
+An awkward little silence fell. Mrs. Sheridan fidgeted with her cup. Really, it was very tactless of father ...
 Suddenly she looked up. There on the table were all those sandwiches, cakes, puffs, all uneaten, all going to be wasted. She had one of her brilliant ideas.
 “I know,” she said. “Let’s make up a basket. Let’s send that poor creature some of this perfectly good food. At any rate, it will be the greatest treat for the children. Don’t you agree? And she’s sure to have neighbours calling in and so on. What a point to have it all ready prepared. Laura!” She jumped up. “Get me the big basket out of the stairs cupboard.”
 “But, mother, do you really think it’s a good idea?” said Laura.
@@ -173,7 +173,7 @@ And again she began, “You’ll excuse her, miss, I’m sure,” and her face, 
 Laura only wanted to get out, to get away. She was back in the passage. The door opened. She walked straight through into the bedroom, where the dead man was lying.
 “You’d like a look at ’im, wouldn’t you?” said Em’s sister, and she brushed past Laura over to the bed. “Don’t be afraid, my lass,”— and now her voice sounded fond and sly, and fondly she drew down the sheet —”‘e looks a picture. There’s nothing to show. Come along, my dear.”
 Laura came.
-There lay a young man, fast asleep — sleeping so soundly, so deeply, that he was far, far away from them both. Oh, so remote, so peaceful. He was dreaming. Never wake him up again. His head was sunk in the pillow, his eyes were closed; they were blind under the closed eyelids. He was given up to his dream. What did garden-parties and baskets and lace frocks matter to him? He was far from all those things. He was wonderful, beautiful. While they were laughing and while the band was playing, this marvel had come to the lane. Happy . . . happy . . . All is well, said that sleeping face. This is just as it should be. I am content.
+There lay a young man, fast asleep — sleeping so soundly, so deeply, that he was far, far away from them both. Oh, so remote, so peaceful. He was dreaming. Never wake him up again. His head was sunk in the pillow, his eyes were closed; they were blind under the closed eyelids. He was given up to his dream. What did garden-parties and baskets and lace frocks matter to him? He was far from all those things. He was wonderful, beautiful. While they were laughing and while the band was playing, this marvel had come to the lane. Happy ... happy ... All is well, said that sleeping face. This is just as it should be. I am content.
 But all the same you had to cry, and she couldn’t go out of the room without saying something to him. Laura gave a loud childish sob.
 “Forgive my hat,” she said.
 And this time she didn’t wait for Em’s sister. She found her way out of the door, down the path, past all those dark people. At the corner of the lane she met Laurie.

@@ -17,6 +17,5 @@ element.
 \examples{
 sampleText <- gardenParty[10]
 extract_token(text = sampleText)
-[1] ... "why" "the" "dickens" "didn't" "the" ...
 }
 

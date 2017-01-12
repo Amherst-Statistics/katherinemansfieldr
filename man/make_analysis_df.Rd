@@ -22,8 +22,10 @@ Takes a collection of chapters, breaks
 them up into individual chapters, and returns summary
 statistics for each chapter. Output statistics include average sentence length,
 average token length, average type length, average variety 
-(# type/# token), story length, number of occurences of words, 
-number of occurances of punctuation and average sentiment score
+(# type/# token), story length, number of occurences of words (expressed as
+ratio of frequency of word over total number of words), 
+number of occurances of punctuation (expressed as ratio of frequency of
+punctuation mark over all punctuation marks) and average sentiment score
 (AFINN method).
 }
 \examples{
@@ -31,6 +33,6 @@ breaks <- find_chapters(gardenParty)
 words <- c("the", "and", "a")
 punctuation <- c(",", ".", "...")
 make_analysis_df(text = gardenParty ,chapters = breaks, 
-                 freqWords = words, punctlist = punctuation)
+                 freqwords = words, punctlist = punctuation)
 }
 

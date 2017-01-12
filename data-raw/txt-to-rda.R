@@ -6,6 +6,7 @@ scanMultiple <- function(list){
   }
   return(output)
 }
+
 setwd("~/git/katherinemansfieldr/data-raw")
 bliss.list <- list.files(pattern = "bliss\\..+\\.txt")
 gardenParty.list <- list.files(pattern = "gardenParty\\..+\\.txt")
@@ -13,20 +14,40 @@ somethingChildish.list <- list.files(pattern = "somethingChildish\\..+\\.txt")
 
 # create the collection texts
 bliss <- scanMultiple(bliss.list)
+bliss <- gsub("“", "\u201C", bliss) 
+bliss <- gsub("”", "\u201D", bliss)
+bliss <- gsub("‘", "\u2018", bliss)
+bliss <- gsub("’", "\u2019", bliss) 
+bliss <- gsub("—", "\u2014", bliss) 
+bliss <- gsub("–", "\u2014", bliss)
+
 gardenParty <- scanMultiple(gardenParty.list)
+gardenParty <- gsub("“", "\u201C", gardenParty) 
+gardenParty <- gsub("”", "\u201D", gardenParty)
+gardenParty <- gsub("‘", "\u2018", gardenParty)
+gardenParty <- gsub("’", "\u2019", gardenParty) 
+gardenParty <- gsub("—", "\u2014", gardenParty) 
+gardenParty <- gsub("–", "\u2014", gardenParty) 
+
 somethingChildish <- scanMultiple(somethingChildish.list)
+somethingChildish <- gsub("“", "\u201C", somethingChildish) 
+somethingChildish <- gsub("”", "\u201D", somethingChildish)
+somethingChildish <- gsub("‘", "\u2018", somethingChildish)
+somethingChildish <- gsub("’", "\u2019", somethingChildish) 
+somethingChildish <- gsub("—", "\u2014", somethingChildish) 
+somethingChildish <- gsub("–", "\u2014", somethingChildish) 
+
 mansfieldComplete <- c(bliss, gardenParty, somethingChildish)
 
 setwd("~/git/katherinemansfieldr/data")
-save(bliss, file = "bliss.rda")
-save(gardenParty, file = "gardenParty.rda")
-save(somethingChildish, file = "somethingChildish.rda")
-save(mansfieldComplete, file = "mansfieldComplete.rda")
+save(bliss, file = "bliss.rda", compress = "bzip2")
+save(gardenParty, file = "gardenParty.rda", compress = "bzip2")
+save(somethingChildish, file = "somethingChildish.rda", compress = "bzip2")
+save(mansfieldComplete, file = "mansfieldComplete.rda", compress = "bzip2")
 
 complete.freqwords <- katherinemansfieldr::find_freq_char(mansfieldComplete)
-punctList <-  c("—", ",", ";", "!", "\\?", "“", "...")
+punctList <-  c("\u2014", ",", ";", "!", "\\?", "\u201C", "...")
 totalChapters <- katherinemansfieldr::find_chapters(mansfieldComplete)
-totalChapters <- c(totalChapters, length(mansfieldComplete))
 completeAnalysisTable <- katherinemansfieldr::make_analysis_df(mansfieldComplete, totalChapters, complete.freqwords, punctList)
 
 # find beginnings of stories
@@ -37,4 +58,5 @@ gardenParty.years <- c(1922, 1921, 1920, 1921, 1920, 1921, 1920, 1922, 1921, 192
 totalYears <- c(bliss.years, gardenParty.years, somethingChildish.years)
 completeAnalysisTable <- mutate(completeAnalysisTable, years = totalYears, period = as.factor(ifelse(years < 1915, "early", ifelse(years < 1918, "middle", "late"))))
 
-save(completeAnalysisTable, file = "completeAnalysisTable.rda")
+save(completeAnalysisTable, file = "completeAnalysisTable.rda", compress = "gzip")
+

@@ -24,6 +24,5 @@ matched and indexed in the larger text argument.
 breakpoints <- c("Shall we sit here?", "“No, not now,” 
                said the girl. “Not here, I can’t.”")
 get_breaks(text = gardenParty, breaks = breakpoints)
-[1] 1215 1535
 }
 

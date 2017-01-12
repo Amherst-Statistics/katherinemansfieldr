@@ -1,14 +1,12 @@
 #' Get type-token ratio/vocabulary richness measure
 #'
 #' Returns the ratio of number of types by number of tokens in a given 
-#' character vector. Each element in the output vector is associated with 
-#' the line with the same index number in the input vector.
+#' string.
 #'
-#' @param text Vector of strings representing lines of a text
+#' @param text A random string.
 #' @export
 #' @examples
 #' get_variety(text=gardenParty)
-#' [1] 0.916  0.6071  0.7536  ...
 
 get_variety <- function(text){
   variety <- c()

@@ -8,10 +8,11 @@
 #' @examples
 #' sentence_length(sentences=c("And after all the weather was ideal.", 
 #' "Windless, warm, the sky without a cloud."))
-#' [1] 7  7
 
 sentence_length <- function(sentences){
-  output <- sapply(gregexpr("\\W+", sentences), length) + 1
+  output <- sapply(gregexpr("\\W+", sentences), length)
+  output <- as.numeric(output)
+  output <- output + 1
   return(output)
 }
 

@@ -5,15 +5,15 @@
 #' element.
 #'
 #' @param text A random string, as a character vector
+#' @importFrom dplyr %>%
 #' @export
 #' @examples
 #' sampleText <- gardenParty[10]
 #' extract_token(text = sampleText)
-#' [1] ... "why" "the" "dickens" "didn't" "the" ...
 
 extract_token <- function(text){
   output <- tolower(text)
-  output <- gsub("[^[:alnum:][:space:]’]", "", output) %>%
+  output <- gsub("[.,?;:!\u201C\u201D\u2014\\.\\.\\.]", " ", output) %>%
     strsplit("\\s") %>%
     unlist()
   output <- output[which(output != "")]
@@ -27,15 +27,15 @@ extract_token <- function(text){
 #' a separate element.
 #'
 #' @param text A random string, as a character vector
+#' @importFrom dplyr %>%
 #' @export
 #' @examples
 #' sampleText <- gardenParty[10]
 #' extract_type(text = sampleText)
-#' [1]... "the" "dickens" "didn't" "fellow" "stick" ...
 
 extract_type <- function(text){
   output <- tolower(text)
-  output <- gsub("[^[:alnum:][:space:]’]", "", output) %>%
+  output <- gsub("[.,?;:!\u201C\u201D\u2014\\.\\.\\.]", " ", output) %>%
     strsplit("\\s") %>%
     unlist()
   output <- unique(output[which(output != "")])
@@ -50,19 +50,25 @@ extract_type <- function(text){
 #' @param text A random string, as a character vector
 #' @note This function takes out all periods, question marks, 
 #'       exclamation points and quotation marks.
+#' @importFrom dplyr %>%
 #' @export
 #' @examples
 #' sampleText <- gardenParty[10]
 #' extract_sentences(text = sampleText)
-#' [1] "Yes, very fine said Stanley briefly"
-#' [2] "Why the dickens didn't the fellow stick to his part of the sea"
-#' [3] "Why should he come barging over to this exact spot"
 
 extract_sentences <- function(text){
-  output <- gsub("([?!]”|“ | ”)", "", text)
-  output <- strsplit(output, split = "[.?!] ") %>%
+  output <- strsplit(text, split = "(?<=[.!?] |[[.!?]\u201D )", perl = TRUE) %>%
     unlist()
+  output <- gsub("^\\s+|\\s+$", "", output)
+  for(i in 1:length(output)){
+    if(grepl("^([A-Z]|\u201C)", output[i], perl = TRUE) != TRUE){
+      replace <- paste(output[i-1], output[i])
+      output[i-1] <- replace
+      output[i] <- ""
+    }
+  }
   output <- output[which(output != "")]
+  output <- output[which(output != "...")]
   return(output)
 }
 
@@ -76,28 +82,20 @@ extract_sentences <- function(text){
 #'
 #' @param text A random string, as a character vector
 #' @export
+#' @importFrom dplyr %>%
 #' @examples
 #' sampleText <- gardenParty[10]
 #' extract_punct(text = sampleText)
-#' [1] "“" "," "." "’" "?" "?" ....
 
 extract_punct <- function(text){
-  p <- as.vector(tolower(text))
-  p <- strsplit(p, "( [a-z]+|[a-z]+)") %>%
+  output <- as.vector(tolower(text))
+  output <- strsplit(output, "( [a-z]+|[a-z]+)") %>%
     unlist()
-  p <- gsub(". . .", "\\.\\.\\.", p)  
-  ellipsis <- grep("\\.\\.\\.", p, value = TRUE) %>%
-    strsplit(" ") %>% unlist()
-  addons <- ellipsis[which(ellipsis != "...")]
-  ellipsis <- ellipsis[which(ellipsis == "...")]
-  for(i in 1:length(p)){
-    if(nchar(p[i]) > 1){
-      x <- strsplit(p[i], "") %>% unlist()
-      addons <- c(addons, x)
-      p[i] <- " "
-    }
-  }
-  output <- c(p, ellipsis, addons)
-  output <- grep("[.,?;!”“—\\.\\.\\.]", output, value = TRUE)
+  output <- output[which(output != "")]
+  output <- strsplit(output, " ") %>%
+    unlist()
+  output <- gsub("\u201D", "~\u201D", output)
+  output <- strsplit(output, "~", perl = TRUE) %>%
+    unlist()
   return(output)
 }

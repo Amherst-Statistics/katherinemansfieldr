@@ -20,8 +20,5 @@ This function takes out all periods, question marks,
 \examples{
 sampleText <- gardenParty[10]
 extract_sentences(text = sampleText)
-[1] "Yes, very fine said Stanley briefly"
-[2] "Why the dickens didn't the fellow stick to his part of the sea"
-[3] "Why should he come barging over to this exact spot"
 }
 

@@ -15,6 +15,5 @@ words and returns the words in a vector.
 }
 \examples{
 find_freq_char(text = gardenParty)
-[1] "the" "and" "a" "to" "she" "was" "her" "it" "of" "in"
 }
 

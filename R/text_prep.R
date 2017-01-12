@@ -13,12 +13,11 @@
 #' breakpoints <- c("Shall we sit here?", "“No, not now,” 
 #'                said the girl. “Not here, I can’t.”")
 #' get_breaks(text = gardenParty, breaks = breakpoints)
-#' [1] 1215 1535
 
 get_breaks <- function(text, breaks){
   output <- c()
-  for(i in 1:(length(breaks) + 1)){
-    output <- c(output, which(text == breakpoints[i]))
+  for(i in 1:length(breaks)){
+    output <- c(output, grep(breaks[i], text))
   }
   return(output)
 }
@@ -32,7 +31,6 @@ get_breaks <- function(text, breaks){
 #' @examples
 #' sampleText <- c("“Oh, Mrs. Parker, I’m going out.”", "“Very good, sir.”")
 #' collapse_text(text = sampleText)
-#' [1] "“Oh, Mrs. Parker, I’m going out.” “Very good, sir.”"
 
 collapse_text <- function(text){
   return(paste(text, collapse = " "))
@@ -44,10 +42,11 @@ collapse_text <- function(text){
 #' words and returns the words in a vector.
 #'
 #' @param text Character vector containing all the lines in a given text
+#' @importFrom dplyr %>%
+#' @importFrom utils head
 #' @export
 #' @examples
 #' find_freq_char(text = gardenParty)
-#' [1] "the" "and" "a" "to" "she" "was" "her" "it" "of" "in"
 
 find_freq_char <- function(text){
   freqWords <- collapse_text(text) %>%
@@ -66,17 +65,17 @@ find_freq_char <- function(text){
 #' Find chapter breaks in Mansfield data
 #'
 #' Returns the line index numbers of the first lines of each short story in
-#' the vectorized short story collections.
+#' the vectorized short story collections. Only works for the Katherine Mansfield
+#' data included in the katherinemansfieldr package.
 #'
 #' @param text Character vector containing all the lines in a given text 
 #' @note The last element in the output is the line 
 #' @export
 #' @examples
 #' find_chapters(text = gardenParty)
-#' [1] 1  352  403 ...
 
 find_chapters <- function(text){
   output <- grep("^([A-Z]+[a-z]+\\s[A-Z]+[a-z]+|[A-Z]+[a-z]+|[A-Z]+[a-z]+\\s[A-Z]+[a-z]+\\s[A-Z]+[a-z]+), and other stories, by Katherine Mansfield : ", text)
-  output <- as.integer(c(output, length(text) + 1))
+  output <- as.integer(output)
   return(output)
 }

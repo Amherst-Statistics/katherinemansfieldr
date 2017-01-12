@@ -11,13 +11,13 @@ find_chapters(text)
 }
 \description{
 Returns the line index numbers of the first lines of each short story in
-the vectorized short story collections.
+the vectorized short story collections. Only works for the Katherine Mansfield
+data included in the katherinemansfieldr package.
 }
 \note{
 The last element in the output is the line
 }
 \examples{
 find_chapters(text = gardenParty)
-[1] 1  352  403 ...
 }
 

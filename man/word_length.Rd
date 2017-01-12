@@ -16,6 +16,5 @@ unique characters.
 }
 \examples{
 word_length(words=c("very", "early", "morning"))
-[1] 4, 5, 7
 }
 

@@ -24,7 +24,7 @@
 #'
 #' @format A character vector with 1622 elements
 #'
-#' @source \ulr{https://ebooks.adelaide.edu.au/m/mansfield/katherine/bliss/index.html}
+#' @source \url{https://ebooks.adelaide.edu.au/m/mansfield/katherine/bliss/index.html}
 #' 
 "bliss"
 

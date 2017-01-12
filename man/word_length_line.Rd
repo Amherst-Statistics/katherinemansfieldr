@@ -15,9 +15,5 @@ in terms of number of characters.
 }
 \examples{
 word_length_line(text = gardenParty)
-  avg_token_length
-1            4.750
-2            4.214
-3            4.579
 }
 

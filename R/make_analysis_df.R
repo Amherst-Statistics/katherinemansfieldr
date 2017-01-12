@@ -4,8 +4,10 @@
 #' them up into individual chapters, and returns summary
 #' statistics for each chapter. Output statistics include average sentence length,
 #' average token length, average type length, average variety 
-#' (# type/# token), story length, number of occurences of words, 
-#' number of occurances of punctuation and average sentiment score
+#' (# type/# token), story length, number of occurences of words (expressed as
+#' ratio of frequency of word over total number of words), 
+#' number of occurances of punctuation (expressed as ratio of frequency of
+#' punctuation mark over all punctuation marks) and average sentiment score
 #' (AFINN method).
 #'
 #' @param text Character vector containing all the lines in a given text 
@@ -14,13 +16,16 @@
 #' @param freqwords Words whose frequency of appearance will be recorded
 #' @param punctlist Punctuation characters whose frequency of appearance 
 #'        will be recorded 
+#' @importFrom dplyr %>%
+#' @importFrom utils tail
+#' @importFrom syuzhet get_sentiment
 #' @export
 #' @examples
 #' breaks <- find_chapters(gardenParty)
 #' words <- c("the", "and", "a")
 #' punctuation <- c(",", ".", "...")
 #' make_analysis_df(text = gardenParty ,chapters = breaks, 
-#'                  freqWords = words, punctlist = punctuation)
+#'                  freqwords = words, punctlist = punctuation)
 
 make_analysis_df <- function(text, chapters, freqwords, punctlist){
   collection_name <- c()
@@ -64,13 +69,13 @@ make_analysis_df <- function(text, chapters, freqwords, punctlist){
     
     # frequency of most common words
     WordFreq <- charfreq(text.token, freqwords, punctuation = FALSE)
-    WordFreq <- mutate(WordFreq, freq = freq/length(text.token))
+    WordFreq$freq <- WordFreq$freq/length(text.token)
     WordFreq <- tidyr::spread(WordFreq, character, freq)
     
     # punctuation
     text.punct <- extract_punct(subtext)
     PunctFreq <- charfreq(text.punct, punctlist, punctuation = TRUE)
-    PunctFreq <- mutate(PunctFreq, freq = freq/length(text.punct))
+    PunctFreq$freq <- PunctFreq$freq/length(text.punct)
     PunctFreq <- tidyr::spread(PunctFreq, character, freq)
     
     text.sentiment <- extract_sentences(subtext)

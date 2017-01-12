@@ -8,7 +8,6 @@
 #' @export
 #' @examples
 #' word_length(words=c("very", "early", "morning"))
-#' [1] 4, 5, 7
 
 word_length <- function(words){
   output <- nchar(words)
@@ -24,19 +23,18 @@ word_length <- function(words){
 #' @export
 #' @examples
 #' word_length_line(text = gardenParty)
-#'   avg_token_length
-#' 1            4.750
-#' 2            4.214
-#' 3            4.579
 
 word_length_line <- function(text){
+  line_index <- c()
   avg_token_length <- c()
   for(i in 1:length(text)){
     token <- extract_token(text[i])
     tokenLength <- word_length(token)
     tokenLengthAvg <- mean(tokenLength)
+    line_index <- c(line_index, paste(i))
     avg_token_length <- c(avg_token_length, tokenLengthAvg)
   }
-  output <- avg_token_length
+  line_index <- as.numeric(line_index)
+  output <- data.frame(line_index, avg_token_length)
   return(output)
 }

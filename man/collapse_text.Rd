@@ -15,6 +15,5 @@ Retrieves a character vector and collapses it into one string.
 \examples{
 sampleText <- c("“Oh, Mrs. Parker, I’m going out.”", "“Very good, sir.”")
 collapse_text(text = sampleText)
-[1] "“Oh, Mrs. Parker, I’m going out.” “Very good, sir.”"
 }
 

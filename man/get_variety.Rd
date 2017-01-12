@@ -7,15 +7,13 @@
 get_variety(text)
 }
 \arguments{
-\item{text}{Vector of strings representing lines of a text}
+\item{text}{A random string.}
 }
 \description{
 Returns the ratio of number of types by number of tokens in a given 
-character vector. Each element in the output vector is associated with 
-the line with the same index number in the input vector.
+string.
 }
 \examples{
 get_variety(text=gardenParty)
-[1] 0.916  0.6071  0.7536  ...
 }
 

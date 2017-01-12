@@ -16,6 +16,5 @@ each sentence in terms of number of words.
 \examples{
 sentence_length(sentences=c("And after all the weather was ideal.", 
 "Windless, warm, the sky without a cloud."))
-[1] 7  7
 }
 

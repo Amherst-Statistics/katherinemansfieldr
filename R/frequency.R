@@ -1,3 +1,5 @@
+globalVariables(c("freq"))
+
 #' Count frequency of word or punctuation mark in a text
 #'
 #' Matches a vector of target words/punctuation marks to a larger vector 
@@ -14,25 +16,25 @@
 #'        punctuation marks into words
 #' @note the accepted punctuation marks are commas, periods, semicolons, question marks
 #'        exclamation points, quotation marks (forward and backward), ellipses and em-dashes.
+#' @note to match quotation marks, use Unicode code for right and left quotation marks 
 #' @export
 #' @examples
 #' char <- extract_token(gardenParty)
 #' charfreq(char, c("she", "he", "them"), punctuation = FALSE)
-#'      character freq
-#' [1]       she  1349
-#' [2]        he  8632
-#' [3]      them  223
 #' 
 #' char <- extract_punct(gardenParty)
 #' charfreq(char, c(".", "...", "?"), punctuation = TRUE)
-#'           character    freq
-#' [1]          period   15229
-#' [2]        ellipsis     199
-#' [3]   question_mark     603
 
 charfreq <- function(characters, char.list, punctuation = FALSE){
   freq <- c()
   char.list[which(char.list=="?")] <- "\\?"
+  char.list[which(char.list==".")] <- "~"
+  if(punctuation == FALSE){
+    char.list <- paste("^", char.list, sep = "")
+  }
+  else{
+    characters[which(characters == ".")] <- "~"
+  }
   for(i in 1:length(char.list)){
     x <- length(grep(char.list[i], characters))
     freq <- c(freq, x)
@@ -40,10 +42,10 @@ charfreq <- function(characters, char.list, punctuation = FALSE){
       if (char.list[i] == ","){
         char.list[i] <- "comma"
       }
-      if (char.list[i] == "—"){
+      if (char.list[i] == "\u2014"){
         char.list[i] <- "em_dash"
       }
-      if (char.list[i] == "."){
+      if (char.list[i] == "~"){
         char.list[i] <- "period"
       }
       if (char.list[i] == "\\?"){
@@ -58,12 +60,15 @@ charfreq <- function(characters, char.list, punctuation = FALSE){
       if (char.list[i] == ";"){
         char.list[i] <- "semicolon"
       }
-      if (char.list[i] == "“" | char.list[i] == "”"){
+      if (char.list[i] == "\u201C" | char.list[i] == "\u201D"){
         char.list[i] <- "quote"
       }
     }
   }
-  
+  char.list[which(char.list=="~")] <- "\\."
+  if(punctuation == FALSE){
+    char.list = substring(char.list, 2)
+  }
   output <- data.frame(char.list, freq)
   colnames(output) <- c("character", "freq")
   return(output)
@@ -71,14 +76,14 @@ charfreq <- function(characters, char.list, punctuation = FALSE){
 
 #' Get frequency of words per line
 #'
-#' Returns a data table returning the relative frequency at which a series of desired
-#' words appear in a given line of text and the index number of that line. Relative
-#' frequency is calculated as the ratio of number of occurances to number of total
-#' words in a given line.
+#' Returns a data table returning the number of times a series of desired
+#' words appear in a given line of text and the index number of that line.
 #'
 #' @param text Any text or document as a character vector
 #' @param freqwords Vector of target words 
 #'        to be matched with the text/document of interest
+#' @importFrom dplyr mutate
+#' @importFrom tidyr spread
 #' @export
 #' @examples
 #' freq_word_line(text = gardenParty, freqwords = c("she", "they", "he"))
@@ -90,7 +95,6 @@ freq_word_line <- function(text, freqwords){
     words <- extract_token(text[i])
     WordsFreq <- charfreq(words, freqwords)
     line_index <- c(line_index, paste(i))
-    WordsFreq <- dplyr::mutate(WordsFreq, freq = freq/length(words))
     WordsFreq <- tidyr::spread(WordsFreq, character, freq)
     if(i == 1){
       frequency <- WordsFreq
@@ -106,17 +110,18 @@ freq_word_line <- function(text, freqwords){
 
 #' Get frequency of punctuation marks per line
 #'
-#' Returns a data table returning the relative frequency at which a series of 
+#' Returns a data table returning the number of times a series of 
 #' desired punctuation marks appear in a given line and the index 
-#' number of that line. Relative frequency is calculated as the ratio of number
-#' of occurances to total number of words in a given line.
+#' number of that line.
 #'
 #' @param text Vector of strings representing lines of a text
 #' @param punctlist Vector of target punctuation marks to be matched 
 #'        with the text/document of interest
+#' @importFrom dplyr mutate
+#' @importFrom tidyr spread
 #' @export
 #' @examples
-#' freqPunct_line(text = gardenParty, punctlist = c(".", "?", "..."))
+#' freq_punct_line(text = gardenParty, punctlist = c(".", "?", "..."))
 
 freq_punct_line <- function(text, punctlist){
   line_index <- c()
@@ -125,7 +130,6 @@ freq_punct_line <- function(text, punctlist){
     words <- extract_punct(text[i])
     WordsFreq <- charfreq(words, punctlist, punctuation = TRUE)
     line_index <- c(line_index, paste(i))
-    WordsFreq <- dplyr::mutate(WordsFreq, freq = freq/length(extract_token(text[i])))
     WordsFreq <- tidyr::spread(WordsFreq, character, freq)
     if(i == 1){
       frequency <- WordsFreq

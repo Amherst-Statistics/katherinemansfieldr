@@ -26,20 +26,14 @@ in the larger string.
 \note{
 the accepted punctuation marks are commas, periods, semicolons, question marks
        exclamation points, quotation marks (forward and backward), ellipses and em-dashes.
+
+to match quotation marks, use Unicode code for right and left quotation marks
 }
 \examples{
 char <- extract_token(gardenParty)
 charfreq(char, c("she", "he", "them"), punctuation = FALSE)
-     character freq
-[1]       she  1349
-[2]        he  8632
-[3]      them  223
 
 char <- extract_punct(gardenParty)
 charfreq(char, c(".", "...", "?"), punctuation = TRUE)
-          character    freq
-[1]          period   15229
-[2]        ellipsis     199
-[3]   question_mark     603
 }
 

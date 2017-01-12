@@ -19,6 +19,5 @@ and backward), ellipses and em-dashes.
 \examples{
 sampleText <- gardenParty[10]
 extract_punct(text = sampleText)
-[1] "“" "," "." "’" "?" "?" ....
 }
 

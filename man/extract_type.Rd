@@ -17,6 +17,5 @@ a separate element.
 \examples{
 sampleText <- gardenParty[10]
 extract_type(text = sampleText)
-[1]... "the" "dickens" "didn't" "fellow" "stick" ...
 }
 

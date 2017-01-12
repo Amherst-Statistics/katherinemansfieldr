@@ -6,7 +6,7 @@
 \title{"Bliss, and Other Stories"}
 \format{A character vector with 1622 elements}
 \source{
-\ulr{https://ebooks.adelaide.edu.au/m/mansfield/katherine/bliss/index.html}
+\url{https://ebooks.adelaide.edu.au/m/mansfield/katherine/bliss/index.html}
 }
 \usage{
 bliss

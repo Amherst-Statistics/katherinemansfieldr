@@ -13,12 +13,11 @@ freq_punct_line(text, punctlist)
 with the text/document of interest}
 }
 \description{
-Returns a data table returning the relative frequency at which a series of 
+Returns a data table returning the number of times a series of 
 desired punctuation marks appear in a given line and the index 
-number of that line. Relative frequency is calculated as the ratio of number
-of occurances to total number of words in a given line.
+number of that line.
 }
 \examples{
-freqPunct_line(text = gardenParty, punctlist = c(".", "?", "..."))
+freq_punct_line(text = gardenParty, punctlist = c(".", "?", "..."))
 }
 

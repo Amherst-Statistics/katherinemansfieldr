@@ -5,10 +5,15 @@ Authors@R: c(person("Andrew", "Kim", email = "akim17@amherst.edu",
                   role = c("aut", "cre")),
            person("Olivia", "Xu", email = "sxu17@amherst.edu",
                   role = c("aut")))
-Description: This package contains machine45readable versions of the short stories from three of Katherine Mansfield's collections: The Garden Party, Bliss and Something Childish.This package also contains functions that parse text files and perform stylometric analysis tasks such asmeasuring lengths of sentences and words, measuring vocabulary richness, frequency of words and punctuation.
+Description: This package contains machine readable versions of the short stories from three of Katherine Mansfield's collections: The Garden Party, Bliss and Something Childish. This package also contains functions that parse text files and perform stylometric analysis tasks such as measuring lengths of sentences and words, measuring vocabulary richness, frequency of words and punctuation.
 Depends:
-    R (>= 2.0.0), dplyr
-License: GNU General Public License
+    R (>= 3.0.0)
+Imports:
+  dplyr, 
+  syuzhet, 
+  tidyr,
+  utils
+License: file LICENSE
 Encoding: UTF-8
 LazyData: TRUE
 RoxygenNote: 5.0.1
