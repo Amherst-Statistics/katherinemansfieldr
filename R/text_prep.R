@@ -55,9 +55,7 @@ find_freq_char <- function(text){
   words <- table(freqWords) %>%
     sort(decreasing = TRUE) %>%
     head(10) %>%
-    data.frame()
-  
-  freqWords <- as.character(words$freqWords)
+    names()
   
   return(freqWords)
 }
