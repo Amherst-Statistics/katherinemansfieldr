@@ -1,6 +1,6 @@
 globalVariables(c("freq"))
 
-#' Count frequency of word or punctuation mark in a text
+#' Count frequency of a word or punctuation mark in a text
 #'
 #' Matches a vector of target words/punctuation marks to a larger vector 
 #' of words/punctuation marks and counts how many times that particular word or 
@@ -13,7 +13,7 @@ globalVariables(c("freq"))
 #' @param char.list Vector of target words/punctuation marks to be matched with the larger
 #'        vector of words/characters
 #' @param punctuation Boolean that determines whether to convert
-#'        punctuation marks into words
+#'        punctuation marks into words in final output table
 #' @note the accepted punctuation marks are commas, periods, semicolons, question marks
 #'        exclamation points, quotation marks (forward and backward), ellipses and em-dashes.
 #' @note to match quotation marks, use Unicode characters for right (u201D) and left (u201C) 
@@ -31,7 +31,7 @@ charfreq <- function(characters, char.list, punctuation = FALSE){
   char.list[which(char.list=="?")] <- "\\?"
   char.list[which(char.list==".")] <- "~"
   if(punctuation == FALSE){
-    char.list <- paste("^", char.list, sep = "")
+    char.list <- paste("^", char.list, "$", sep = "")
   }
   else{
     characters[which(characters == ".")] <- "~"
@@ -81,7 +81,7 @@ charfreq <- function(characters, char.list, punctuation = FALSE){
 #' Get frequency of words per line
 #'
 #' Returns a data table returning the number of times a series of desired
-#' words appear in a given line of text and the index number of that line.
+#' words appears in a given line of text and the index number of that line.
 #'
 #' @param text Any text or document as a character vector
 #' @param freqwords Vector of target words 

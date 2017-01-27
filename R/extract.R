@@ -4,7 +4,7 @@
 #' with every word in the string as a separate
 #' element.
 #'
-#' @param text A random string, as a character vector
+#' @param text Character vector containing all the lines in a given text 
 #' @importFrom dplyr %>%
 #' @export
 #' @examples
@@ -16,6 +16,7 @@ extract_token <- function(text){
   output <- gsub("[.,?;:!\u201C\u201D\u2014\\.\\.\\.]", " ", output) %>%
     strsplit("\\s") %>%
     unlist()
+  output <- gsub("’", "'", output)
   output <- output[which(output != "")]
   return(output)
 }
@@ -26,7 +27,7 @@ extract_token <- function(text){
 #' with every unique word in the string as
 #' a separate element.
 #'
-#' @param text A random string, as a character vector
+#' @param text Character vector containing all the lines in a given text 
 #' @importFrom dplyr %>%
 #' @export
 #' @examples
@@ -38,6 +39,7 @@ extract_type <- function(text){
   output <- gsub("[.,?;:!\u201C\u201D\u2014\\.\\.\\.]", " ", output) %>%
     strsplit("\\s") %>%
     unlist()
+  output <- gsub("’", "'", output)
   output <- unique(output[which(output != "")])
   return(output)
 }
@@ -47,7 +49,7 @@ extract_type <- function(text){
 #' Takes a string and returns a vector
 #' of each sentence in the string.
 #'
-#' @param text A random string, as a character vector
+#' @param text Character vector containing all the lines in a given text 
 #' @note This function takes out all periods, question marks, 
 #'       exclamation points and quotation marks.
 #' @importFrom dplyr %>%
@@ -80,7 +82,7 @@ extract_sentences <- function(text){
 #' marks, exclamation points, quotation marks (both forward
 #' and backward), ellipses and em-dashes.
 #'
-#' @param text A random string, as a character vector
+#' @param text Character vector containing all the lines in a given text 
 #' @export
 #' @importFrom dplyr %>%
 #' @examples

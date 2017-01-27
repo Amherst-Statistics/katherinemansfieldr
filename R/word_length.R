@@ -16,10 +16,10 @@ word_length <- function(words){
 
 #' Get token length per line
 #'
-#' Returns a vector containing the average token (word) length in a line
+#' Returns a vector containing the average token (word) length in a line of text
 #' in terms of number of characters.
 #'
-#' @param text Vector of strings representing lines of a text
+#' @param text Vector of strings, with each element representing one line from a text
 #' @export
 #' @examples
 #' word_length_line(text = gardenParty)

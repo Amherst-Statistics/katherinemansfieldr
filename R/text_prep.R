@@ -36,37 +36,38 @@ collapse_text <- function(text){
   return(paste(text, collapse = " "))
 }
 
-#' Find 10 most frequent words
+#' Find most frequent words
 #'
-#' Retrieves the 10 most frequently occurring
+#' Retrieves the n most frequently occurring
 #' words and returns the words in a vector.
 #'
 #' @param text Character vector containing all the lines in a given text
+#' @param numwords Number of most frequently occuring words to retrieve
 #' @importFrom dplyr %>%
 #' @importFrom utils head
 #' @export
 #' @examples
-#' find_freq_char(text = gardenParty)
+#' find_freq_char(text = gardenParty, 10)
 
-find_freq_char <- function(text){
+find_freq_char <- function(text, numwords){
   freqWords <- collapse_text(text) %>%
     extract_token()
   
   words <- table(freqWords) %>%
     sort(decreasing = TRUE) %>%
-    head(10) %>%
+    head(numwords) %>%
     names()
   
-  return(freqWords)
+  return(words)
 }
 
-#' Find chapter breaks in Mansfield data
+#' Find chapter breaks in a text
 #'
 #' Returns the line index numbers of the titles of each short story or chapter in
 #' the a vectorized short story collection or book. 
 #'
 #' @param text Character vector containing all the lines in a given text 
-#' @param keyword Character string of keywords that identify the titles of each chapter.
+#' @param keyword Character string of keywords that identify the title lines of each chapter.
 #' @note The last element in the output is the line 
 #' @export
 #' @examples
