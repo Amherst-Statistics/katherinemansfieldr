@@ -46,7 +46,7 @@ save(somethingChildish, file = "somethingChildish.rda", compress = "bzip2")
 save(mansfieldComplete, file = "mansfieldComplete.rda", compress = "bzip2")
 
 complete.freqwords <- katherinemansfieldr::find_freq_char(mansfieldComplete, 10)
-punctList <-  c("\u2014", ",", ";", "!", "\\?", "\u201C", "...")
+punctList <-  c("\u2014", ",", ";", "!", "\\?", "\u201C", "\u201D", "...")
 chapters <- " and other stories, by Katherine Mansfield : "
 
 # analysis table for Something Childish
