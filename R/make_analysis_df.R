@@ -1,8 +1,8 @@
 #' Create analysis table
 #'
 #' Takes a collection of chapters, breaks
-#' them up into individual chapters, and returns summary
-#' statistics for each chapter. Output statistics include average sentence length,
+#' them up into individual chapters, and returns summary dataset
+#'for each chapter. Output statistics include average sentence length,
 #' average token length, average type length, average variety 
 #' (# type/# token), story length (number of words), number of occurences of words (expressed as
 #' ratio of frequency of word over total number of words), 
@@ -11,8 +11,10 @@
 #' (AFINN method).
 #'
 #' @param text Character vector containing all the lines in a given text 
+#' @param book Name of book or story collection from which chapters/stories are taken
 #' @param chapters Line index numbers associated with the first line/title 
 #'        line of each chapter
+#' @param titles Title of each story or chapter in output dataset
 #' @param freqwords Words whose frequency of appearance will be recorded
 #' @param punctlist Punctuation characters whose frequency of appearance 
 #'        will be recorded 
@@ -21,24 +23,31 @@
 #' @importFrom syuzhet get_sentiment
 #' @export
 #' @examples
-#' breaks <- find_chapters(gardenParty)
+#' sample <- gardenParty[1:452]
+#' collection <- "The Garden Party"
+#' breaks <- find_chapters(sample, " and other stories, by Katherine Mansfield : ")
+#' stories <- c("At the Bay", "Her First Ball", "The Singing Lesson")
 #' words <- c("the", "and", "a")
 #' punctuation <- c(",", ".", "...")
-#' make_analysis_df(text = gardenParty ,chapters = breaks, 
+#' make_analysis_df(text = sample, book = collection, chapters = breaks, titles = stories,
 #'                  freqwords = words, punctlist = punctuation)
 
-make_analysis_df <- function(text, chapters, freqwords, punctlist){
+make_analysis_df <- function(text, book, chapters, titles, freqwords, punctlist){
   collection_name <- c()
   story_title <- c()
   outputdf <- NULL
-  for(i in 1:(length(chapters) - 1)){
-    col_name <- unlist(strsplit(text[chapters[i]], ","))[1]
+  for(i in 1:(length(chapters))){
+    col_name <- book
     collection_name <- c(collection_name, col_name)
     start <- chapters[i]
-    end <- chapters[i+1] - 1
+    if(i < length(chapters)){
+      end <- chapters[i+1] - 1
+    }
+    if(i == length(chapters)){
+      end <- length(text)
+    }
     text.lines <- text[start:end]
-    text.lines <- gsub("^([A-Z]+[a-z]+\\s[A-Z]+[a-z]+|[A-Z]+[a-z]+|[A-Z]+[a-z]+\\s[A-Z]+[a-z]+\\s[A-Z]+[a-z]+), and other stories, by Katherine Mansfield : ", "", text.lines)
-    story_title <- c(story_title, text.lines[1])
+    story_title <- c(story_title, titles[i])
     subtext <- collapse_text(text.lines)
     
     # average token length
