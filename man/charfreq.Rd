@@ -2,7 +2,7 @@
 % Please edit documentation in R/frequency.R
 \name{charfreq}
 \alias{charfreq}
-\title{Count frequency of word or punctuation mark in a text}
+\title{Count frequency of a word or punctuation mark in a text}
 \usage{
 charfreq(characters, char.list, punctuation = FALSE)
 }
@@ -14,7 +14,7 @@ a smaller list of desired words/characters.}
 vector of words/characters}
 
 \item{punctuation}{Boolean that determines whether to convert
-punctuation marks into words}
+punctuation marks into words in final output table}
 }
 \description{
 Matches a vector of target words/punctuation marks to a larger vector 

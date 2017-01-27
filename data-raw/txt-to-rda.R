@@ -45,10 +45,29 @@ save(gardenParty, file = "gardenParty.rda", compress = "bzip2")
 save(somethingChildish, file = "somethingChildish.rda", compress = "bzip2")
 save(mansfieldComplete, file = "mansfieldComplete.rda", compress = "bzip2")
 
-complete.freqwords <- katherinemansfieldr::find_freq_char(mansfieldComplete)
+complete.freqwords <- katherinemansfieldr::find_freq_char(mansfieldComplete, 10)
 punctList <-  c("\u2014", ",", ";", "!", "\\?", "\u201C", "...")
-totalChapters <- katherinemansfieldr::find_chapters(mansfieldComplete)
-completeAnalysisTable <- katherinemansfieldr::make_analysis_df(mansfieldComplete, totalChapters, complete.freqwords, punctList)
+chapters <- " and other stories, by Katherine Mansfield : "
+
+# analysis table for Something Childish
+somethingChildishChapters <- katherinemansfieldr::find_chapters(somethingChildish, chapters)
+chapterNames <- somethingChildish[somethingChildishChapters]
+chapterNames <- gsub("^([A-Z]+[a-z]+\\s[A-Z]+[a-z]+|[A-Z]+[a-z]+|[A-Z]+[a-z]+\\s[A-Z]+[a-z]+\\s[A-Z]+[a-z]+), and other stories, by Katherine Mansfield : ", "", chapterNames)
+somethingChildishdt <- katherinemansfieldr::make_analysis_df(somethingChildish, "Something Childish", somethingChildishChapters, chapterNames, complete.freqwords, punctList)
+
+# analysis table for Bliss
+blissChapters <- katherinemansfieldr::find_chapters(bliss, chapters)
+chapterNames <- bliss[blissChapters]
+chapterNames <- gsub("^([A-Z]+[a-z]+\\s[A-Z]+[a-z]+|[A-Z]+[a-z]+|[A-Z]+[a-z]+\\s[A-Z]+[a-z]+\\s[A-Z]+[a-z]+), and other stories, by Katherine Mansfield : ", "", chapterNames)
+blissdt <- katherinemansfieldr::make_analysis_df(bliss, "Bliss", blissChapters, chapterNames, complete.freqwords, punctList)
+
+# analysis table for Garden Party
+gardenPartyChapters <- katherinemansfieldr::find_chapters(gardenParty, chapters)
+chapterNames <- gardenParty[gardenPartyChapters]
+chapterNames <- gsub("^([A-Z]+[a-z]+\\s[A-Z]+[a-z]+|[A-Z]+[a-z]+|[A-Z]+[a-z]+\\s[A-Z]+[a-z]+\\s[A-Z]+[a-z]+), and other stories, by Katherine Mansfield : ", "", chapterNames)
+gardenPartydt <- katherinemansfieldr::make_analysis_df(gardenParty, "Garden Party", gardenPartyChapters, chapterNames, complete.freqwords, punctList)
+
+completeAnalysisTable <- rbind(blissdt, gardenPartydt, somethingChildishdt)
 
 # find beginnings of stories
 somethingChildish.years <- c(1908, 1913, 1913, 1913, 1914, 1915, 1915, 1917, 1917, 1917, 1917, 1910, 1917, 1917, 1917, 1919, 1921, 1921, 1910, 1910, 1910, 1911, 1912, 1912, 1913)

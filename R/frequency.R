@@ -31,7 +31,7 @@ charfreq <- function(characters, char.list, punctuation = FALSE){
   char.list[which(char.list=="?")] <- "\\?"
   char.list[which(char.list==".")] <- "~"
   if(punctuation == FALSE){
-    char.list <- paste("^", char.list, "$", sep = "")
+    char.list <- paste("^", char.list, sep = "")
   }
   else{
     characters[which(characters == ".")] <- "~"

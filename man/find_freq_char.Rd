@@ -2,18 +2,20 @@
 % Please edit documentation in R/text_prep.R
 \name{find_freq_char}
 \alias{find_freq_char}
-\title{Find 10 most frequent words}
+\title{Find most frequent words}
 \usage{
-find_freq_char(text)
+find_freq_char(text, numwords)
 }
 \arguments{
 \item{text}{Character vector containing all the lines in a given text}
+
+\item{numwords}{Number of most frequently occuring words to retrieve}
 }
 \description{
-Retrieves the 10 most frequently occurring
+Retrieves the n most frequently occurring
 words and returns the words in a vector.
 }
 \examples{
-find_freq_char(text = gardenParty)
+find_freq_char(text = gardenParty, 10)
 }
 

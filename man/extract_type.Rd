@@ -7,7 +7,7 @@
 extract_type(text)
 }
 \arguments{
-\item{text}{A random string, as a character vector}
+\item{text}{Character vector containing all the lines in a given text}
 }
 \description{
 Takes a string and returns a vector

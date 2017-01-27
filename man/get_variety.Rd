@@ -7,7 +7,7 @@
 get_variety(text)
 }
 \arguments{
-\item{text}{A random string.}
+\item{text}{A vector of strings containing lines from a text.}
 }
 \description{
 Returns the ratio of number of types by number of tokens in a given 

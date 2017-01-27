@@ -7,10 +7,10 @@
 word_length_line(text)
 }
 \arguments{
-\item{text}{Vector of strings representing lines of a text}
+\item{text}{Vector of strings, with each element representing one line from a text}
 }
 \description{
-Returns a vector containing the average token (word) length in a line
+Returns a vector containing the average token (word) length in a line of text
 in terms of number of characters.
 }
 \examples{

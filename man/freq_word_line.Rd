@@ -14,7 +14,7 @@ to be matched with the text/document of interest}
 }
 \description{
 Returns a data table returning the number of times a series of desired
-words appear in a given line of text and the index number of that line.
+words appears in a given line of text and the index number of that line.
 }
 \examples{
 freq_word_line(text = gardenParty, freqwords = c("she", "they", "he"))
