@@ -4,20 +4,22 @@
 \alias{find_chapters}
 \title{Find chapter breaks in Mansfield data}
 \usage{
-find_chapters(text)
+find_chapters(text, keyword)
 }
 \arguments{
 \item{text}{Character vector containing all the lines in a given text}
+
+\item{keyword}{Character string of keywords that identify the titles of each chapter.}
 }
 \description{
-Returns the line index numbers of the first lines of each short story in
-the vectorized short story collections. Only works for the Katherine Mansfield
-data included in the katherinemansfieldr package.
+Returns the line index numbers of the titles of each short story or chapter in
+the a vectorized short story collection or book.
 }
 \note{
 The last element in the output is the line
 }
 \examples{
-find_chapters(text = gardenParty)
+chapters <- c(" and other stories, by Katherine Mansfield : ")
+find_chapters(text = gardenParty, keyword = chapters)
 }
 

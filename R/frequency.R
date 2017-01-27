@@ -16,7 +16,8 @@ globalVariables(c("freq"))
 #'        punctuation marks into words
 #' @note the accepted punctuation marks are commas, periods, semicolons, question marks
 #'        exclamation points, quotation marks (forward and backward), ellipses and em-dashes.
-#' @note to match quotation marks, use Unicode characters for right and left quotation marks 
+#' @note to match quotation marks, use Unicode characters for right (u201D) and left (u201C) 
+#'       quotation marks.
 #' @export
 #' @examples
 #' char <- extract_token(gardenParty)

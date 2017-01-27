@@ -27,7 +27,8 @@ in the larger string.
 the accepted punctuation marks are commas, periods, semicolons, question marks
        exclamation points, quotation marks (forward and backward), ellipses and em-dashes.
 
-to match quotation marks, use Unicode characters for right and left quotation marks
+to match quotation marks, use Unicode characters for right (u201D) and left (u201C) 
+      quotation marks.
 }
 \examples{
 char <- extract_token(gardenParty)
