@@ -17,6 +17,8 @@ Mansfield available on the ebooks@adelaide.edu website. The works have been conv
 
 There is also `mansfieldComplete` which contains all of the stories from the three story collections in one character vector.
 
+This package also contains text mining and feature extraction functions for textual data analysis problems. Users can extract elements such as words, sentences and punctuation marks from a character vector of text. Functions that analyze these textual elements such as character frequency and word/sentence length are also included.
+
 ## Installation
 
 To install this package, please refer to the following commands: 
