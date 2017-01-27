@@ -16,7 +16,7 @@ extract_token <- function(text){
   output <- gsub("[.,?;:!\u201C\u201D\u2014\\.\\.\\.]", " ", output) %>%
     strsplit("\\s") %>%
     unlist()
-  output <- gsub("’", "'", output)
+  output <- gsub("\u2019", "'", output)
   output <- output[which(output != "")]
   return(output)
 }
@@ -39,7 +39,7 @@ extract_type <- function(text){
   output <- gsub("[.,?;:!\u201C\u201D\u2014\\.\\.\\.]", " ", output) %>%
     strsplit("\\s") %>%
     unlist()
-  output <- gsub("’", "'", output)
+  output <- gsub("\u2019", "'", output)
   output <- unique(output[which(output != "")])
   return(output)
 }
