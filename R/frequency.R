@@ -12,6 +12,8 @@ globalVariables(c("freq"))
 #'        a smaller list of desired words/characters.
 #' @param char.list Vector of target words/punctuation marks to be matched with the larger
 #'        vector of words/characters
+#' @param punctuation Boolean that determines whether to convert
+#'        punctuation marks into words
 #' @note the accepted punctuation marks are commas, periods, semicolons, question marks
 #'        exclamation points, quotation marks (forward and backward), ellipses and em-dashes.
 #' @note to match quotation marks, use Unicode characters for right (u201D) and left (u201C) 
@@ -19,54 +21,61 @@ globalVariables(c("freq"))
 #' @export
 #' @examples
 #' char <- extract_token(gardenParty)
-#' charfreq(char, c("she", "he", "them"))
+#' charfreq(char, c("she", "he", "them"), punctuation = FALSE)
 #' 
 #' char <- extract_punct(gardenParty)
-#' charfreq(char, c(".", "...", "?"))
+#' charfreq(char, c(".", "...", "?"), punctuation = TRUE)
 
-charfreq <- function(characters, char.list){
+charfreq <- function(characters, char.list, punctuation = FALSE){
   freq <- c()
   char.list[which(char.list=="?")] <- "\\?"
   char.list[which(char.list==".")] <- "~"
-  char.list <- paste("^", char.list, sep = "")
-  characters[which(characters == ".")] <- "~"
-for(i in 1:length(char.list)){
-  x <- length(grep(char.list[i], characters))
-  freq <- c(freq, x)
-    if (char.list[i] == ","){
-      char.list[i] <- "comma"
-    }
-    if (char.list[i] == "\u2014"){
-      char.list[i] <- "em_dash"
-    }
-    if (char.list[i] == "~"){
-      char.list[i] <- "period"
-    }
-    if (char.list[i] == "\\?"){
-      char.list[i] <- "question_mark"
-    }
-    if (char.list[i] == "!"){
-      char.list[i] <- "exclaim_point"
-    }
-    if (char.list[i] == "..."){
-      char.list[i] <- "ellipsis"
-    }
-    if (char.list[i] == ";"){
-      char.list[i] <- "semicolon"
-    }
-    if (char.list[i] == "\u201C"){
-      char.list[i] <- "left_quote"
-    } 
-    if (char.list[i] == "\u201D"){
-      char.list[i] <- "right_quote"
+  if(punctuation == FALSE){
+    char.list <- paste("^", char.list, sep = "")
+  }
+  else{
+    characters[which(characters == ".")] <- "~"
+  }
+  for(i in 1:length(char.list)){
+    x <- length(grep(char.list[i], characters))
+    freq <- c(freq, x)
+    if(punctuation == TRUE){
+      if (char.list[i] == ","){
+        char.list[i] <- "comma"
+      }
+      if (char.list[i] == "\u2014"){
+        char.list[i] <- "em_dash"
+      }
+      if (char.list[i] == "~"){
+        char.list[i] <- "period"
+      }
+      if (char.list[i] == "\\?"){
+        char.list[i] <- "question_mark"
+      }
+      if (char.list[i] == "!"){
+        char.list[i] <- "exclaim_point"
+      }
+      if (char.list[i] == "..."){
+        char.list[i] <- "ellipsis"
+      }
+      if (char.list[i] == ";"){
+        char.list[i] <- "semicolon"
+      }
+      if (char.list[i] == "\u201C"){
+        char.list[i] <- "left_quote"
+      } 
+      if (char.list[i] == "\u201D"){
+        char.list[i] <- "right_quote"
+      }
     }
   }
-char.list[which(char.list=="~")] <- "\\."
-char.list = substring(char.list, 2)
-
-output <- data.frame(char.list, freq)
-colnames(output) <- c("character", "freq")
-return(output)
+  char.list[which(char.list=="~")] <- "\\."
+  if(punctuation == FALSE){
+    char.list = substring(char.list, 2)
+  }
+  output <- data.frame(char.list, freq)
+  colnames(output) <- c("character", "freq")
+  return(output)
 }
 
 #' Get frequency of words per line
