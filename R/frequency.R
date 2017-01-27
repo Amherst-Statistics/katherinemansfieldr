@@ -16,7 +16,7 @@ globalVariables(c("freq"))
 #'        punctuation marks into words
 #' @note the accepted punctuation marks are commas, periods, semicolons, question marks
 #'        exclamation points, quotation marks (forward and backward), ellipses and em-dashes.
-#' @note to match quotation marks, use Unicode code for right and left quotation marks 
+#' @note to match quotation marks, use Unicode characters for right and left quotation marks 
 #' @export
 #' @examples
 #' char <- extract_token(gardenParty)
@@ -60,8 +60,11 @@ charfreq <- function(characters, char.list, punctuation = FALSE){
       if (char.list[i] == ";"){
         char.list[i] <- "semicolon"
       }
-      if (char.list[i] == "\u201C" | char.list[i] == "\u201D"){
-        char.list[i] <- "quote"
+      if (char.list[i] == "\u201C"){
+        char.list[i] <- "left_quote"
+      } 
+      if (char.list[i] == "\u201D"){
+        char.list[i] <- "right_quote"
       }
     }
   }
